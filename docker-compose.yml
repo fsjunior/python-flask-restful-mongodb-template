@@ -1,0 +1,16 @@
+# ================================================================= #
+# WARNING: This docker-compose file is not suitable for production  #
+# ================================================================= #
+
+
+version: '2.2'
+
+services:
+  mongo:
+    image: mongo:4.4.1-bionic
+    hostname: mongo
+    ports:
+      - 27017:27017
+    command: mongod
+    expose:
+      - 27017

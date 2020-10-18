@@ -1,0 +1,47 @@
+# This workflow will install Python dependencies, run test and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  run:
+    services:
+      database:
+        image: mongo:4.4.1-bionic
+        ports:
+          - 27017:27017
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9.x
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.9
+    - uses: Gr1N/setup-poetry@v4
+    - name: Install dependencies
+      run: |
+        poetry install
+    - name: Configure environment
+      run: |
+        cp dotenv.test .env
+    - name: Lint (Flake8, isort, black)
+      run: |
+        make check-lint
+    - name: Typing check (mypy)
+      run: |
+        make check-typing
+    - name: Security analysis (bandit)
+      run: |
+        make check-security
+    - name: Coverage
+      env:
+        FLASK_ENV: development
+      run: |
+        make coverage-update

@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "python-flask-restful-seed"
+version = "0.1.0"
+description = "A simple flask restful seed."
+authors = ["Francisco de Souza Junior <fsjunior@gmail.com>"]
+license = "MIT License"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Flask = "^1.1.2"
+flask-smorest = "^0.25.0"
+flask-mongoengine = "^0.9.5"
+flask-marshmallow = "^0.14.0"
+Flask-Cors = "^3.0.9"
+gunicorn = "^20.0.4"
+marshmallow = "^3.8.0"
+python-dotenv = "^0.15.0"
+
+[tool.poetry.dev-dependencies]
+pytest-flask = "^1.0.0"
+black = "^20.8b1"
+flake8 = "^3.8.4"
+isort = "^5.6.4"
+pytest-cov = "^2.10.1"
+codecov = "^2.1.10"
+mypy = "^0.790"
+bandit = "^1.6.2"
+pytest-deadfixtures = "^2.2.1"
+pytest-mock = "^3.3.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

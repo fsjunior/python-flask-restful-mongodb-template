@@ -1,0 +1,14 @@
+FLASK_ENV=development
+
+APP_PORT=8080
+
+MONGODB_URI=mongodb://localhost:27017/test
+
+
+OPENAPI_URL_PREFIX="/doc"
+
+OPENAPI_SWAGGER_UI_PATH="/swagger"
+OPENAPI_SWAGGER_UI_URL="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.36.1/"
+
+OPENAPI_REDOC_PATH="/redoc"
+OPENAPI_REDOC_URL="https://cdn.jsdelivr.net/npm/redoc@2.0.0-rc.45/bundles/redoc.standalone.js"
