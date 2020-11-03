@@ -42,13 +42,91 @@ A simple and powerful 🐍+flask RESTful template/seed with MongoDB. Feel free t
 - [ ] Some authorization method;
 - [ ] CD example to a PaaS.
 
-## Install and Configure
+## Getting started
 
-TBD
+After cloning this repository for your project, start the `poetry` environment:
 
-## Folders and content
+```shell
+~ $ poetry init
+```
 
-TBD
+There is a `docker-compose.yml` file with a pre-configurated MongoDB service that can be used for **testing and development only**.
+In order to run the tests, you will need to start it:
+
+```shell
+~ $ docker-compose up
+```
+
+You will also need a `.env` for local development and testing. You can copy the 
+`dotenv.test` file for this purpose.
+
+```shell
+~ $ cp dotenv.test .env
+```
+
+### CLI
+
+The CLI of this project is made entirely with a Makefile.
+
+#### Run in development mode
+
+```shell
+~ $ make run-dev
+```
+
+(Don't forget the Mongo service and the .env file 😉)
+
+#### Check all linting and tests
+
+This will run check linting (`isort`, `flake8` and `black`), static typing check (`mypy`)
+security analysis (`bandit`) and coverage tests (`pytest --cov`). 
+
+```shell
+~ $ make check-all
+```
+
+You can also run these steps separately with `check-lint`, `check-typing`, `check-security` 
+and `coverage` make targets. 
+
+To fix the lint, you can run:
+
+```shell
+~ $ make fix-lint
+```
+
+#### Create a migration
+
+```shell
+~ $ make generate-migrations
+```
+
+The generated migration will be localized in `migrations` folder in the root directory and 
+it is generated with [pymongo-migrate](https://github.com/stxnext/pymongo-migrate).
+
+
+### Content
+
+We have two parent folders: `app` and `test`. As you may have guessed, `app` contains the app 
+files and `test` have all the tests and fixtures. The `test` folder structure is mirrored 
+from `app`, so you can easily find where the tests are.
+
+Inside the `app` folder, there are 3 other folders: 
+
+- `api` which contains the api stuff as schemas, rest views and queries.
+- `common` with common files like a settings file.
+- `model` with the MongoDB collection models.
+
+Explore these folders to understand what is going on and what you have to change.
+
+In the root directory, there is other important files as well:
+
+A `Procfile` with web and release (to apply the migrations) targets.
+
+The `run.py`, the entry point of the service.
+
+A `Makefile` with the CLI commands.
+
+The `setup.cfg` for linting configuration.
 
 
 ## FAQ
