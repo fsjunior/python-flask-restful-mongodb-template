@@ -38,7 +38,7 @@ Por favor, veja a seção de [Roadmap](#roadmap) para mais detalhes.
 - [x] API restful simples;
 - [x] Documentação com OpenAPI/Swagger/Redoc;
 - [x] Uso de variáveis de ambiente e arquivos .env;
-- [ ] Paginação;
+- [x] Paginação;
 - [ ] Migrações/seeding;
 - [ ] Mensagens de erro customizadas;
 - [ ] Algum método de autorização;

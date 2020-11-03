@@ -31,6 +31,7 @@ class Settings:
     def app_port(self) -> int:
         return Settings._get_env("APP_PORT", int, 8080)
 
+    # Mongo Properties
     @property
     def mongodb_uri(self) -> str:
         return Settings._get_env("MONGODB_URI", str)

@@ -22,7 +22,7 @@ def create_app(testing=False):
 
 
 def configure_cors(app):
-    CORS(app, resources={r"/*": {"origins": "*", "send_wildcard": "False"}})
+    CORS(app, resources={r"/*": {"origins": "*", "send_wildcard": "False", "expose_headers": ["X-Pagination"]}})
 
 
 def configure_marshmallow(app: Flask):

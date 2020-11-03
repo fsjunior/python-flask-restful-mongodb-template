@@ -1,4 +1,4 @@
-from marshmallow import Schema, fields
+from marshmallow import EXCLUDE, Schema, fields
 
 
 class RecipeSchema(Schema):
@@ -13,3 +13,8 @@ class RecipeSchema(Schema):
 
 class RecipeQueryArgsSchema(Schema):
     title = fields.String(required=False, description="Title of the recipe")
+
+    class Meta:
+        # This is needed otherwise the schema validation will
+        # fail with the pagination parameters
+        unknown = EXCLUDE

@@ -1,5 +1,6 @@
 from flask.views import MethodView
 from flask_smorest import Blueprint
+from flask_smorest.pagination import PaginationParameters
 
 from app.api.query.common import find_by_id
 from app.api.schema.recipes import RecipeQueryArgsSchema, RecipeSchema
@@ -11,10 +12,13 @@ api = Blueprint("api", __name__, url_prefix="/api/v1/recipes", description="Reci
 @api.route("")
 class Recipes(MethodView):
     @api.arguments(RecipeQueryArgsSchema, location="query")
+    @api.paginate()
     @api.response(RecipeSchema(many=True))
-    def get(self, args: dict):
+    def get(self, recipe_args: dict, pagination_parameters: PaginationParameters):
         """List recipes"""
-        return Recipe.objects(**args)
+        result = Recipe.objects(**recipe_args).paginate(pagination_parameters.page, pagination_parameters.page_size)
+        pagination_parameters.item_count = result.total
+        return result.items
 
     @api.arguments(RecipeSchema)
     @api.response(RecipeSchema, code=201)

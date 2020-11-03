@@ -35,7 +35,7 @@ A simple and powerful 🐍+flask restful template/seed with MongoDB. Feel free t
 - [x] Simple restful API;
 - [x] OpenAPI/Swagger/Redoc documentation.
 - [x] Make project use environment variables and .env files;
-- [ ] Pagination;
+- [x] Pagination;
 - [ ] Migrations/seeding;
 - [ ] Customized error messages;
 - [ ] Some authorization method;

@@ -1,3 +1,4 @@
+import json
 from http import HTTPStatus
 
 import pytest
@@ -130,6 +131,7 @@ class TestRecipe:
             "/api/v1/recipes"
         )
         assert response.status_code == HTTPStatus.OK
+        assert "X-Pagination" in response.headers
 
         info_recipes = response.json
         assert info_recipes
