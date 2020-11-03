@@ -3,6 +3,7 @@
 ![Powered by Flask](https://img.shields.io/badge/powered%20by-flask-blue)
 [![build](https://img.shields.io/github/workflow/status/fsjunior/python-flask-restful-mongodb-template/build)](https://github.com/fsjunior/python-flask-restful-mongodb-template/actions?query=workflow%3Abuild)
 [![Codecov](https://img.shields.io/codecov/c/gh/fsjunior/python-flask-restful-mongodb-template)](https://codecov.io/gh/fsjunior/python-flask-restful-mongodb-template)
+[![maintainability](https://img.shields.io/codeclimate/maintainability/fsjunior/python-flask-restful-mongodb-template)](https://codeclimate.com/github/fsjunior/python-flask-restful-mongodb-template)
 ![GitHub last commit](https://img.shields.io/github/last-commit/fsjunior/python-flask-restful-mongodb-template)
 [![GitHub](https://img.shields.io/github/license/fsjunior/python-flask-restful-mongodb-template)](https://github.com/fsjunior/python-flask-restful-mongodb-template/blob/main/LICENSE)
 
@@ -129,12 +130,12 @@ A `Makefile` with the CLI commands.
 
 The `setup.cfg` for linting configuration.
 
-
 ## FAQ
 
 ### Can I use this project in a production environment?
 
-I don't know. Should I?
+Probably, but with caution. You should have in mind, for example, that the 
+`docker-compose.yml` file provided is not suitable for a production environment.
 
 ### Why don't you create a cookiecutter template?
 
@@ -142,4 +143,10 @@ Besides I like cookiecutter, I believe that this seed/template is so simple and 
 
 ### Can I contribute to this project?
 
-Of course! You can contribute by suggesting improvements and making PRs. 😉
+Of course! If you would like to see a new feature, please open a new issue. 
+
+## License
+
+Created and maintened by Francisco de Souza Júnior (2020).
+
+Licensed under the [MIT License](https://github.com/fsjunior/python-flask-restful-mongodb-template/blob/main/LICENSE).
