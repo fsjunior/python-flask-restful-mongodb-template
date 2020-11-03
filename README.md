@@ -131,19 +131,20 @@ The `setup.cfg` for linting configuration.
 
 ### Other configurations
 
-#### codecov
+#### [codecov](https://codecov.io/)
 
 As this project use codecov, if you would like a coverage report badge, you need to create a 
 [codecov](https://codecov.io/) account e associate it with your project.
 
-#### Sonarqube.io
+#### [sonarcloud.io](sonarcloud.io)
 
-To check the quality gate, you need to create a [sonarqube.io](sonarqube.io) account and configure the CI to
-upload the code to sonarqube.
+If you would like to check the quality of your code, you need to create a 
+[sonarcloud.io](sonarcloud.io) account.
 
-#### Codeclimate
+#### [codeclimate](codeclimate.com)
 
-To have a maintainability analysis, you should create a [codeclimate](codeclimate.com) account. 
+If you would like to have a maintainability analysis of your code, you should create a 
+[codeclimate](codeclimate.com) account. 
 
 
 ## FAQ

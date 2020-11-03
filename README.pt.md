@@ -137,19 +137,18 @@ O arquivo `setup.cfg` com a configuração do lint.
 
 ### Outras configurações
 
-#### codecov
+#### [codecov](https://codecov.io/)
 
 Como esse template usa o codecov, se você gostaria de ter uma badge de cobertura de código
 do relatório, você precisa criar uma conta no [codecov](https://codecov.io/) a associa-la
 com seu projeto.
 
-#### Sonarqube.io
+#### [sonarcloud.io](sonarcloud.io)
 
 Para fazer verificação de qualidade de código, você precisa de uma conta do 
-[sonarqube.io](sonarqube.io). Você também precisa configurar o seu projeto e o CI para 
-fazer o upload do código ao sonarqube. 
+[sonarcloud.io](sonarcloud.io).
 
-#### Codeclimate
+#### [codeclimate](codeclimate.com)
 
 Para fazer uma análise de manutenibilidade, você precisa fazer uma conta no 
 [codeclimate](codeclimate.com). 
