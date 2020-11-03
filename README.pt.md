@@ -1,5 +1,6 @@
-# Python+flask restful template com MongoDB
+# Python+flask RESTful template com MongoDB
 ![python 3.9](https://img.shields.io/badge/python-3.9-blue)
+![Powered by Flask](https://img.shields.io/badge/powered%20by-flask-blue)
 [![build](https://img.shields.io/github/workflow/status/fsjunior/python-flask-restful-mongodb-template/build)](https://github.com/fsjunior/python-flask-restful-mongodb-template/actions?query=workflow%3Abuild)
 [![Codecov](https://img.shields.io/codecov/c/gh/fsjunior/python-flask-restful-mongodb-template)](https://codecov.io/gh/fsjunior/python-flask-restful-mongodb-template)
 ![GitHub last commit](https://img.shields.io/github/last-commit/fsjunior/python-flask-restful-mongodb-template)
@@ -7,7 +8,7 @@
 
 *README also available in [english](README.md) 🇺🇸🇬🇧.*
 
-Um template/seed simples e poderoso com 🐍+flask para aplicações restful usando MongoDB. 
+Um template/seed simples e poderoso com 🐍+flask para aplicações RESTful usando MongoDB. 
 Sinta-se a vontade para clonar esse repositório e usar esse código como você desejar. 
 
 **Aviso**: esse projeto ainda não está terminado e algumas *features* podem estar faltando. 
@@ -17,8 +18,8 @@ Por favor, veja a seção de [Roadmap](#roadmap) para mais detalhes.
 ## O que esse template/seed tem 
 
 - Novíssimo [Python 3.9](https://docs.python.org/3.9/whatsnew/3.9.html);
-- [Flask](flask.palletsprojects.com) framework;
-- API Restful usando  [flask-smorest](https://flask-smorest.readthedocs.io/en/latest/);
+- [Flask](flask.palletsprojects.com) micro-framework;
+- API RESTful com paginação e especificação OpenAPI com Swagger/ReDoc usando o incrível  [flask-smorest](https://flask-smorest.readthedocs.io/en/latest/);
 - Esquemas com [marshmallow](https://marshmallow.readthedocs.io/en/stable/);
 - ODM com [mongoengine](http://mongoengine.org/);
 - Testes e relatórios de cobertura com [pytest](https://docs.pytest.org/en/stable/) e [pytest-cov](https://github.com/pytest-dev/pytest-cov);
@@ -39,7 +40,7 @@ Por favor, veja a seção de [Roadmap](#roadmap) para mais detalhes.
 - [x] Documentação com OpenAPI/Swagger/Redoc;
 - [x] Uso de variáveis de ambiente e arquivos .env;
 - [x] Paginação;
-- [ ] Migrações/seeding;
+- [x] Migrações/seeding;
 - [ ] Mensagens de erro customizadas;
 - [ ] Algum método de autorização;
 - [ ] Exemplo de deploy para um serviço PaaS.

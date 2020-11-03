@@ -1,3 +1,6 @@
+.PHONY: generate-migrations
+include .env
+export
 
 clean:
 	@find . -name "*.pyc" | xargs rm -rf
@@ -30,10 +33,16 @@ test: clean
 
 coverage: clean
 	poetry run pytest --dead-fixtures --dup-fixtures test
-	poetry run pytest test --cov --cov-fail-under=90 --cov-report=term-missing
+	poetry run pytest test --cov --cov-fail-under=99 --cov-report=term-missing
 
 coverage-update: coverage
 	poetry run codecov
 
+check-all: check-lint check-typing check-security coverage
+
 run-dev:
 	poetry run python run.py
+
+generate-migrations:
+	pymongo-migrate generate -u $(MONGODB_URI) -m migrations
+	echo "Migration template generated in 'migrations' directory. Please review the generated file."
