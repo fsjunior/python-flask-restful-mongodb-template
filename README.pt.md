@@ -122,7 +122,8 @@ Dentro da pasta `app`, há três outras pastas:
 - `common` com os arquivos comum a todo projecto como um arquivo de configurações (`settings`).
 - `model` com os modelos das coleções do MongoDB.
 
-Explore essas pastas para entender o que está acontecendo o que você tem que modificar.
+Explore essas pastas para entender o que está acontecendo o que você tem que modificar para
+adaptar o template para seu projeto.
 
 No diretório raíz, há outros arquivos importantes também:
 

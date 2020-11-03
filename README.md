@@ -10,7 +10,7 @@
 
 A simple and powerful 🐍+flask RESTful template/seed with MongoDB. Feel free to clone this repository and use this code as you wish.
 
-**Warning**: this project is not finished yet and some important features may still missing. Please see the [Roadmap](#roadmap) for more details.
+**Warning**: this project is not finished yet and some important features may still be missing. Please see the [Roadmap](#roadmap) for more details.
 
 ## What this template/seed have 
 
@@ -51,7 +51,7 @@ After cloning this repository for your project, start the `poetry` environment:
 ```
 
 There is a `docker-compose.yml` file with a pre-configurated MongoDB service that can be used for **testing and development only**.
-In order to run the tests, you will need to start it:
+To run the tests, you will need to start it:
 
 ```shell
 ~ $ docker-compose up
@@ -66,7 +66,7 @@ You will also need a `.env` for local development and testing. You can copy the
 
 ### CLI
 
-The CLI of this project is made entirely with a Makefile.
+The CLI is made with a Makefile.
 
 #### Run in development mode
 
@@ -100,7 +100,7 @@ To fix the lint, you can run:
 ~ $ make generate-migrations
 ```
 
-The generated migration will be localized in `migrations` folder in the root directory and 
+The generated migration will be localized in the `migrations` folder in the root directory and 
 it is generated with [pymongo-migrate](https://github.com/stxnext/pymongo-migrate).
 
 
@@ -110,15 +110,16 @@ We have two parent folders: `app` and `test`. As you may have guessed, `app` con
 files and `test` have all the tests and fixtures. The `test` folder structure is mirrored 
 from `app`, so you can easily find where the tests are.
 
-Inside the `app` folder, there are 3 other folders: 
+Inside the `app` folder, there are three sub-folders: 
 
-- `api` which contains the api stuff as schemas, rest views and queries.
+- `api` which contains the API stuff as schemas, rest views and queries.
 - `common` with common files like a settings file.
 - `model` with the MongoDB collection models.
 
-Explore these folders to understand what is going on and what you have to change.
+Explore the project to understand what is going on and what you have to change to adapt the 
+template to your project.
 
-In the root directory, there is other important files as well:
+In the root directory, there are other important files as well:
 
 A `Procfile` with web and release (to apply the migrations) targets.
 
@@ -141,4 +142,4 @@ Besides I like cookiecutter, I believe that this seed/template is so simple and 
 
 ### Can I contribute to this project?
 
-Of course! You can contribute suggesting improvements and making PRs. 😉
+Of course! You can contribute by suggesting improvements and making PRs. 😉
