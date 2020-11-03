@@ -1,11 +1,10 @@
-# Python+flask RESTful template using MongoDB
+# Python+Flask RESTful template using MongoDB
 ![python 3.9](https://img.shields.io/badge/python-3.9-blue)
-![Powered by Flask](https://img.shields.io/badge/powered%20by-flask-blue)
 [![build](https://img.shields.io/github/workflow/status/fsjunior/python-flask-restful-mongodb-template/build)](https://github.com/fsjunior/python-flask-restful-mongodb-template/actions?query=workflow%3Abuild)
 [![Codecov](https://img.shields.io/codecov/c/gh/fsjunior/python-flask-restful-mongodb-template)](https://codecov.io/gh/fsjunior/python-flask-restful-mongodb-template)
 [![maintainability](https://img.shields.io/codeclimate/maintainability/fsjunior/python-flask-restful-mongodb-template)](https://codeclimate.com/github/fsjunior/python-flask-restful-mongodb-template)
+[![quality gate](https://img.shields.io/sonar/quality_gate/fsjunior_python-flask-restful-mongodb-template?server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/dashboard?id=fsjunior_python-flask-restful-mongodb-template)
 ![GitHub last commit](https://img.shields.io/github/last-commit/fsjunior/python-flask-restful-mongodb-template)
-[![GitHub](https://img.shields.io/github/license/fsjunior/python-flask-restful-mongodb-template)](https://github.com/fsjunior/python-flask-restful-mongodb-template/blob/main/LICENSE)
 
 *Documentação também disponível em [português](README.pt.md) 🇧🇷.*
 
@@ -129,6 +128,23 @@ The `run.py`, the entry point of the service.
 A `Makefile` with the CLI commands.
 
 The `setup.cfg` for linting configuration.
+
+### Other configurations
+
+#### codecov
+
+As this project use codecov, if you would like a coverage report badge, you need to create a 
+[codecov](https://codecov.io/) account e associate it with your project.
+
+#### Sonarqube.io
+
+To check the quality gate, you need to create a [sonarqube.io](sonarqube.io) account and configure the CI to
+upload the code to sonarqube.
+
+#### Codeclimate
+
+To have a maintainability analysis, you should create a [codeclimate](codeclimate.com) account. 
+
 
 ## FAQ
 

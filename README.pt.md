@@ -1,11 +1,10 @@
-# Python+flask RESTful template com MongoDB
+# Python+Flask RESTful template com MongoDB
 ![python 3.9](https://img.shields.io/badge/python-3.9-blue)
-![Powered by Flask](https://img.shields.io/badge/powered%20by-flask-blue)
 [![build](https://img.shields.io/github/workflow/status/fsjunior/python-flask-restful-mongodb-template/build)](https://github.com/fsjunior/python-flask-restful-mongodb-template/actions?query=workflow%3Abuild)
 [![Codecov](https://img.shields.io/codecov/c/gh/fsjunior/python-flask-restful-mongodb-template)](https://codecov.io/gh/fsjunior/python-flask-restful-mongodb-template)
 [![maintainability](https://img.shields.io/codeclimate/maintainability/fsjunior/python-flask-restful-mongodb-template)](https://codeclimate.com/github/fsjunior/python-flask-restful-mongodb-template)
+[![quality gate](https://img.shields.io/sonar/quality_gate/fsjunior_python-flask-restful-mongodb-template?server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/dashboard?id=fsjunior_python-flask-restful-mongodb-template)
 ![GitHub last commit](https://img.shields.io/github/last-commit/fsjunior/python-flask-restful-mongodb-template)
-[![GitHub](https://img.shields.io/github/license/fsjunior/python-flask-restful-mongodb-template)](https://github.com/fsjunior/python-flask-restful-mongodb-template/blob/main/LICENSE)
 
 *README also available in [english](README.md) 🇺🇸🇬🇧.*
 
@@ -135,6 +134,25 @@ O arquivo `run.py`, o ponto de entrada do serviço.
 O arquivo `Makefile` com os comandos CLI.
 
 O arquivo `setup.cfg` com a configuração do lint.
+
+### Outras configurações
+
+#### codecov
+
+Como esse template usa o codecov, se você gostaria de ter uma badge de cobertura de código
+do relatório, você precisa criar uma conta no [codecov](https://codecov.io/) a associa-la
+com seu projeto.
+
+#### Sonarqube.io
+
+Para fazer verificação de qualidade de código, você precisa de uma conta do 
+[sonarqube.io](sonarqube.io). Você também precisa configurar o seu projeto e o CI para 
+fazer o upload do código ao sonarqube. 
+
+#### Codeclimate
+
+Para fazer uma análise de manutenibilidade, você precisa fazer uma conta no 
+[codeclimate](codeclimate.com). 
 
 
 ## Perguntas Frequentes
