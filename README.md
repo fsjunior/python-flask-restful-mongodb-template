@@ -1,5 +1,6 @@
-# Python+flask restful template using MongoDB
+# Python+flask RESTful template using MongoDB
 ![python 3.9](https://img.shields.io/badge/python-3.9-blue)
+![Powered by Flask](https://img.shields.io/badge/powered%20by-flask-blue)
 [![build](https://img.shields.io/github/workflow/status/fsjunior/python-flask-restful-mongodb-template/build)](https://github.com/fsjunior/python-flask-restful-mongodb-template/actions?query=workflow%3Abuild)
 [![Codecov](https://img.shields.io/codecov/c/gh/fsjunior/python-flask-restful-mongodb-template)](https://codecov.io/gh/fsjunior/python-flask-restful-mongodb-template)
 ![GitHub last commit](https://img.shields.io/github/last-commit/fsjunior/python-flask-restful-mongodb-template)
@@ -7,15 +8,15 @@
 
 *Documentação também disponível em [português](README.pt.md) 🇧🇷.*
 
-A simple and powerful 🐍+flask restful template/seed with MongoDB. Feel free to clone this repository and use this code as you wish.
+A simple and powerful 🐍+flask RESTful template/seed with MongoDB. Feel free to clone this repository and use this code as you wish.
 
 **Warning**: this project is not finished yet and some important features may still missing. Please see the [Roadmap](#roadmap) for more details.
 
 ## What this template/seed have 
 
 - Bleeding edge [Python 3.9](https://docs.python.org/3.9/whatsnew/3.9.html);
-- [Flask](flask.palletsprojects.com) framework;
-- Restful API using  [flask-smorest](https://flask-smorest.readthedocs.io/en/latest/);
+- [Flask](flask.palletsprojects.com) micro-framework;
+- RESTful API with pagination and Swagger/ReDoc OpenAPI specification using the incredible [flask-smorest](https://flask-smorest.readthedocs.io/en/latest/);
 - Schemas with [marshmallow](https://marshmallow.readthedocs.io/en/stable/);
 - ODM with [mongoengine](http://mongoengine.org/);
 - Testing and coverage reports with [pytest](https://docs.pytest.org/en/stable/) and [pytest-cov](https://github.com/pytest-dev/pytest-cov);
@@ -36,7 +37,7 @@ A simple and powerful 🐍+flask restful template/seed with MongoDB. Feel free t
 - [x] OpenAPI/Swagger/Redoc documentation.
 - [x] Make project use environment variables and .env files;
 - [x] Pagination;
-- [ ] Migrations/seeding;
+- [x] Migrations/seeding;
 - [ ] Customized error messages;
 - [ ] Some authorization method;
 - [ ] CD example to a PaaS.

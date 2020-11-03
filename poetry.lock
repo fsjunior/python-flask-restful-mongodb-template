@@ -476,6 +476,18 @@ tls = ["ipaddress"]
 zstd = ["zstandard"]
 
 [[package]]
+name = "pymongo-migrate"
+version = "0.11.0"
+description = "MongoDB data migration tool in Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+Click = ">=7"
+pymongo = ">=3.7.2"
+
+[[package]]
 name = "pyparsing"
 version = "2.4.7"
 description = "Python parsing module"
@@ -719,7 +731,7 @@ locale = ["Babel (>=1.3)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "71257860b4add13a1db31dad8950e50719c99777db91b400231c6ba1498cfc56"
+content-hash = "54a92f473ac53d50ee2ce16d3c2d5fb96555b341ea5b7d1ed07500ca3ec6418b"
 
 [metadata.files]
 apispec = [
@@ -1012,6 +1024,9 @@ pymongo = [
     {file = "pymongo-3.11.0-cp38-cp38-win_amd64.whl", hash = "sha256:03dc64a9aa7a5d405aea5c56db95835f6a2fa31b3502c5af1760e0e99210be30"},
     {file = "pymongo-3.11.0-py2.7-macosx-10.15-x86_64.egg", hash = "sha256:63a5387e496a98170ffe638b435c0832c0f2011a6f4ff7a2880f17669fff8c03"},
     {file = "pymongo-3.11.0.tar.gz", hash = "sha256:076a7f2f7c251635cf6116ac8e45eefac77758ee5a77ab7bd2f63999e957613b"},
+]
+pymongo-migrate = [
+    {file = "pymongo-migrate-0.11.0.tar.gz", hash = "sha256:502a2185f9e055688cb3fa94098ee46c11088692b0b0cc2ae81af43623a700f2"},
 ]
 pyparsing = [
     {file = "pyparsing-2.4.7-py2.py3-none-any.whl", hash = "sha256:ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b"},
