@@ -25,7 +25,7 @@ check-typing:
 	poetry run mypy app
 
 check-security:
-	poetry run bandit -r app
+	poetry run bandit --ini setup.cfg
 
 test: clean
 	poetry run pytest test

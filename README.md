@@ -1,16 +1,16 @@
-# Python+flask RESTful template using MongoDB
+# Python+Flask RESTful template using MongoDB
 ![python 3.9](https://img.shields.io/badge/python-3.9-blue)
-![Powered by Flask](https://img.shields.io/badge/powered%20by-flask-blue)
 [![build](https://img.shields.io/github/workflow/status/fsjunior/python-flask-restful-mongodb-template/build)](https://github.com/fsjunior/python-flask-restful-mongodb-template/actions?query=workflow%3Abuild)
 [![Codecov](https://img.shields.io/codecov/c/gh/fsjunior/python-flask-restful-mongodb-template)](https://codecov.io/gh/fsjunior/python-flask-restful-mongodb-template)
+[![maintainability](https://img.shields.io/codeclimate/maintainability/fsjunior/python-flask-restful-mongodb-template)](https://codeclimate.com/github/fsjunior/python-flask-restful-mongodb-template)
+[![quality gate](https://img.shields.io/sonar/quality_gate/fsjunior_python-flask-restful-mongodb-template?server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/dashboard?id=fsjunior_python-flask-restful-mongodb-template)
 ![GitHub last commit](https://img.shields.io/github/last-commit/fsjunior/python-flask-restful-mongodb-template)
-[![GitHub](https://img.shields.io/github/license/fsjunior/python-flask-restful-mongodb-template)](https://github.com/fsjunior/python-flask-restful-mongodb-template/blob/main/LICENSE)
 
 *Documentação também disponível em [português](README.pt.md) 🇧🇷.*
 
 A simple and powerful 🐍+flask RESTful template/seed with MongoDB. Feel free to clone this repository and use this code as you wish.
 
-**Warning**: this project is not finished yet and some important features may still missing. Please see the [Roadmap](#roadmap) for more details.
+**Warning**: this project is not finished yet and some important features may still be missing. Please see the [Roadmap](#roadmap) for more details.
 
 ## What this template/seed have 
 
@@ -42,20 +42,117 @@ A simple and powerful 🐍+flask RESTful template/seed with MongoDB. Feel free t
 - [ ] Some authorization method;
 - [ ] CD example to a PaaS.
 
-## Install and Configure
+## Getting started
 
-TBD
+After cloning this repository for your project, start the `poetry` environment:
 
-## Folders and content
+```shell
+~ $ poetry init
+```
 
-TBD
+There is a `docker-compose.yml` file with a pre-configurated MongoDB service that can be used for **testing and development only**.
+To run the tests, you will need to start it:
+
+```shell
+~ $ docker-compose up
+```
+
+You will also need a `.env` for local development and testing. You can copy the 
+`dotenv.test` file for this purpose.
+
+```shell
+~ $ cp dotenv.test .env
+```
+
+### CLI
+
+The CLI is made with a Makefile.
+
+#### Run in development mode
+
+```shell
+~ $ make run-dev
+```
+
+(Don't forget the Mongo service and the .env file 😉)
+
+#### Check all linting and tests
+
+This will run check linting (`isort`, `flake8` and `black`), static typing check (`mypy`)
+security analysis (`bandit`) and coverage tests (`pytest --cov`). 
+
+```shell
+~ $ make check-all
+```
+
+You can also run these steps separately with `check-lint`, `check-typing`, `check-security` 
+and `coverage` make targets. 
+
+To fix the lint, you can run:
+
+```shell
+~ $ make fix-lint
+```
+
+#### Create a migration
+
+```shell
+~ $ make generate-migrations
+```
+
+The generated migration will be localized in the `migrations` folder in the root directory and 
+it is generated with [pymongo-migrate](https://github.com/stxnext/pymongo-migrate).
+
+
+### Content
+
+We have two parent folders: `app` and `test`. As you may have guessed, `app` contains the app 
+files and `test` have all the tests and fixtures. The `test` folder structure is mirrored 
+from `app`, so you can easily find where the tests are.
+
+Inside the `app` folder, there are three sub-folders: 
+
+- `api` which contains the API stuff as schemas, rest views and queries.
+- `common` with common files like a settings file.
+- `model` with the MongoDB collection models.
+
+Explore the project to understand what is going on and what you have to change to adapt the 
+template to your project.
+
+In the root directory, there are other important files as well:
+
+A `Procfile` with web and release (to apply the migrations) targets.
+
+The `run.py`, the entry point of the service.
+
+A `Makefile` with the CLI commands.
+
+The `setup.cfg` for linting configuration.
+
+### Other configurations
+
+#### [codecov](https://codecov.io/)
+
+As this project use codecov, if you would like a coverage report badge, you need to create a 
+[codecov](https://codecov.io/) account e associate it with your project.
+
+#### [sonarcloud.io](sonarcloud.io)
+
+If you would like to check the quality of your code, you need to create a 
+[sonarcloud.io](sonarcloud.io) account.
+
+#### [codeclimate](codeclimate.com)
+
+If you would like to have a maintainability analysis of your code, you should create a 
+[codeclimate](codeclimate.com) account. 
 
 
 ## FAQ
 
 ### Can I use this project in a production environment?
 
-I don't know. Should I?
+Probably, but with caution. You should have in mind, for example, that the 
+`docker-compose.yml` file provided is not suitable for a production environment.
 
 ### Why don't you create a cookiecutter template?
 
@@ -63,4 +160,10 @@ Besides I like cookiecutter, I believe that this seed/template is so simple and 
 
 ### Can I contribute to this project?
 
-Of course! You can contribute suggesting improvements and making PRs. 😉
+Of course! If you would like to see a new feature, please open a new issue. 
+
+## License
+
+Created and maintened by Francisco de Souza Júnior (2020).
+
+Licensed under the [MIT License](https://github.com/fsjunior/python-flask-restful-mongodb-template/blob/main/LICENSE).
