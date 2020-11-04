@@ -8,9 +8,10 @@
 
 *Documentação também disponível em [português](README.pt.md) 🇧🇷.*
 
-A simple and powerful 🐍+flask RESTful template/seed with MongoDB. Feel free to clone this repository and use this code as you wish.
+A simple and powerful 🐍+flask RESTful template/seed with MongoDB.
 
-**Warning**: this project is not finished yet and some important features may still be missing. Please see the [Roadmap](#roadmap) for more details.
+**Warning**: this project is not finished yet and some important features may still be 
+missing. Please see the [Roadmap](#roadmap) for more details.
 
 ## What this template/seed have 
 
@@ -19,12 +20,12 @@ A simple and powerful 🐍+flask RESTful template/seed with MongoDB. Feel free t
 - RESTful API with pagination and Swagger/ReDoc OpenAPI specification using the incredible [flask-smorest](https://flask-smorest.readthedocs.io/en/latest/);
 - Schemas with [marshmallow](https://marshmallow.readthedocs.io/en/stable/);
 - ODM with [mongoengine](http://mongoengine.org/);
-- Testing and coverage reports with [pytest](https://docs.pytest.org/en/stable/) and [pytest-cov](https://github.com/pytest-dev/pytest-cov);
+- Testing and coverage reports with [pytest](https://docs.pytest.org/en/stable/) 
+and [pytest-cov](https://github.com/pytest-dev/pytest-cov);
 - Coverage report upload and badging with [codecov](https://codecov.io/);
 - Static typing enforcement with [mypy](https://github.com/python/mypy);
-- PEP8 style enforcement with [flake8](https://gitlab.com/pycqa/flake8);
-- Code formatting enforcement with [black](https://github.com/psf/black);
-- Import sorting with [isort](https://pypi.org/project/isort/);
+- Linting with [flake8](https://gitlab.com/pycqa/flake8), 
+[black](https://github.com/psf/black) and [isort](https://pypi.org/project/isort/);
 - Security analysis with [bandit](https://github.com/PyCQA/bandit);
 - Dependencies and environment management [poetry](https://python-poetry.org/);
 - Continuous Integration with [github actions](https://github.com/features/actions).
@@ -39,7 +40,7 @@ A simple and powerful 🐍+flask RESTful template/seed with MongoDB. Feel free t
 - [x] Pagination;
 - [x] Migrations/seeding;
 - [x] Simple requests caching support
-- [ ] Customized error messages;
+- [x] Customized error messages;
 - [ ] Some authorization method;
 - [ ] CD example to a PaaS.
 
@@ -104,9 +105,17 @@ and it is generated with [pymongo-migrate](https://github.com/stxnext/pymongo-mi
 The connection string to MongoDB service used will be the one present in `.env` file.
 
 
-### Content
+### The template
 
-You need to explore the files and folders structure to understand what is going on and 
+I avoided creating my own solutions in this template to keep it as simple as possible. Almost
+every feature here is provided by the libraries that I used (e.g. pagination is provided
+ by flask-smorest and flask-mongoengine).
+
+The files and folders structure pattern that I tried to follow is always use specific 
+files for specific resources and use a common module/file to the that code will be used by 
+different resources.
+
+You need to explore the files and folders structure to understand the code and 
 what you have to change to adapt the template to your project. Here some basic info to help:
 
 There are two parent folders: `app` and `test`. As you may have guessed, `app` contains the 
@@ -119,10 +128,6 @@ Inside the `app` folder, there are three sub-folders:
 and `query` (for queries).
 - `common` with common files like a settings file.
 - `model` with the MongoDB collection models.
-
-The files and folders structure pattern that I tried to use is always create specific 
-files for specific resources and create a common module/file if that code will be used by 
-different resources.
 
 In the root directory, there are other important files as well:
 

@@ -25,9 +25,8 @@ Por favor, veja a seção de [Roadmap](#roadmap) para mais detalhes.
 - Testes e relatórios de cobertura com [pytest](https://docs.pytest.org/en/stable/) e [pytest-cov](https://github.com/pytest-dev/pytest-cov);
 - Upload de relatórios de cobertura e badges com [codecov](https://codecov.io/);
 - Cumprimento de tipagem estática com [mypy](https://github.com/python/mypy);
-- Cumprimento de estilo PEP8 com [flake8](https://gitlab.com/pycqa/flake8);
-- Cumprimento de estilo de código com [black](https://github.com/psf/black);
-- Ordenação de imports com [isort](https://pypi.org/project/isort/);
+- Linting com [flake8](https://gitlab.com/pycqa/flake8), 
+[black](https://github.com/psf/black) e [isort](https://pypi.org/project/isort/);
 - Análise de segurança com [bandit](https://github.com/PyCQA/bandit);
 - Gerencimento de ambientes e dependencias com [poetry](https://python-poetry.org/);
 - Integração Contínua com [github actions](https://github.com/features/actions).
@@ -42,7 +41,7 @@ Por favor, veja a seção de [Roadmap](#roadmap) para mais detalhes.
 - [x] Paginação;
 - [x] Migrações/seeding;
 - [x] Suporte a cache;
-- [ ] Mensagens de erro customizadas;
+- [x] Mensagens de erro customizadas;
 - [ ] Algum método de autorização;
 - [ ] Exemplo de deploy para um serviço PaaS.
 
@@ -109,7 +108,19 @@ Ela é gerada com o [pymongo-migrate](https://github.com/stxnext/pymongo-migrate
 A string de conexão usada para se conectar ao MongoDB será a do arquivo `.env`.
 
 
-### Conteúdo
+### O template
+
+Eu evitei criar minhas próprias soluções nesse templete para deixá-lo o mais simples 
+possível. Praticamente todas as *features* aqui são fornecidas pelas bibliotecas usadas 
+(por exemplo: a páginação já é fornecida pelas bibliotecas flask-smorest e 
+flask-mongoengine).
+
+O padrão de projeto que eu tentei usar aqui é sempre criar arquivos e módulos específicos 
+para recursos específicos e criar um arquivo/módulo `common` para códigos que serão usados
+por diferentes recursos.
+
+Explore essas pastas para entender o que está acontecendo o que você tem que modificar para
+adaptar o template para seu projeto. Aqui uma breve explicação para ajudar:
 
 O projeto tem duas pastas na raíz: `app` e `test`. Como você deve ter adivinhado, a pasta `app`
 contém os arquivos do aplicativo enquanto a pasta `test` tem todos os testes e *fixtures*.
@@ -123,12 +134,7 @@ RESTful) e `query` (para queries no banco).
 - `common` com os arquivos comum a todo projecto como um arquivo de configurações (`settings`).
 - `model` com os modelos das coleções do MongoDB.
 
-O padrão de projeto que eu tentei usar aqui é sempre criar arquivos e módulos específicos 
-para recursos específicos e criar um arquivo/módulo `common` para códigos que serão usados
-por diferentes recursos.
 
-Explore essas pastas para entender o que está acontecendo o que você tem que modificar para
-adaptar o template para seu projeto.
 
 No diretório raíz, há outros arquivos importantes também:
 
