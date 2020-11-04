@@ -38,6 +38,7 @@ A simple and powerful 🐍+flask RESTful template/seed with MongoDB. Feel free t
 - [x] Make project use environment variables and .env files;
 - [x] Pagination;
 - [x] Migrations/seeding;
+- [x] Simple requests caching support
 - [ ] Customized error messages;
 - [ ] Some authorization method;
 - [ ] CD example to a PaaS.
@@ -105,8 +106,8 @@ The connection string to MongoDB service used will be the one present in `.env` 
 
 ### Content
 
-You need to explore the project to understand what is going on and what you have to 
-change to adapt the template to your project. Here some basic info to help:
+You need to explore the files and folders structure to understand what is going on and 
+what you have to change to adapt the template to your project. Here some basic info to help:
 
 There are two parent folders: `app` and `test`. As you may have guessed, `app` contains the 
 app files and `test` have all the tests and fixtures. The `test` folder structure is 
@@ -119,7 +120,7 @@ and `query` (for queries).
 - `common` with common files like a settings file.
 - `model` with the MongoDB collection models.
 
-The files and folders organization pattern that I tried to use is always create specific 
+The files and folders structure pattern that I tried to use is always create specific 
 files for specific resources and create a common module/file if that code will be used by 
 different resources.
 
@@ -141,12 +142,12 @@ account e associate it with your project.
 
 ## FAQ
 
-### Can I use this project in a production environment?
+### Can I use this template in a production environment?
 
-Probably, but with caution. Always do a quality analysis with tools like sonarcloud before
-deploying. You should also have in mind that this template do not provide everything for 
-a production environment. For example, the `docker-compose.yml` provided is not suitable 
-for a production environment.
+Probably, but with caution. Always do a quality analysis with tools like 
+[sonarcloud](sonarcloud.io) before deploying. You should also have in mind that this 
+template do not provide everything for a production environment. For example, the 
+`docker-compose.yml` provided is not suitable for a production environment.
 
 ### Why don't you create a cookiecutter template?
 

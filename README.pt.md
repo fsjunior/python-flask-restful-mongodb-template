@@ -41,6 +41,7 @@ Por favor, veja a seção de [Roadmap](#roadmap) para mais detalhes.
 - [x] Uso de variáveis de ambiente e arquivos .env;
 - [x] Paginação;
 - [x] Migrações/seeding;
+- [x] Suporte a cache;
 - [ ] Mensagens de erro customizadas;
 - [ ] Algum método de autorização;
 - [ ] Exemplo de deploy para um serviço PaaS.
