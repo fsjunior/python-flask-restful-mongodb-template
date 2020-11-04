@@ -98,16 +98,16 @@ To fix the lint, you can run:
 ~ $ make generate-migrations
 ```
 
-The generated migration will be localized in the `migrations` folder in the root directory 
+The generated migration will be placed in the `migrations` folder in the root directory 
 and it is generated with [pymongo-migrate](https://github.com/stxnext/pymongo-migrate). 
 The connection string to MongoDB service used will be the one present in `.env` file.
 
 
 ### Content
 
-We have two parent folders: `app` and `test`. As you may have guessed, `app` contains the 
+There are two parent folders: `app` and `test`. As you may have guessed, `app` contains the 
 app files and `test` have all the tests and fixtures. The `test` folder structure is 
-mirrored from `app`, so you can easily find where the tests are.
+mirrored from `app`, so it is easy to find where the tests are.
 
 Inside the `app` folder, there are three sub-folders: 
 
