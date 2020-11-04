@@ -3,6 +3,7 @@ from flask_cors import CORS
 from flask_marshmallow import Marshmallow
 from flask_mongoengine import MongoEngine
 
+from app.api.cache import configure_cache
 from app.api.routes import configure_routes
 
 
@@ -16,6 +17,7 @@ def create_app(testing=False):
     configure_cors(app)
     configure_marshmallow(app)
     configure_routes(app)
+    configure_cache(app)
     configure_mongodb(app)
 
     return app

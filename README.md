@@ -44,14 +44,14 @@ A simple and powerful 🐍+flask RESTful template/seed with MongoDB. Feel free t
 
 ## Getting started
 
-After cloning this repository for your project, start the `poetry` environment:
+After cloning this repository for your project, init the `poetry` environment:
 
 ```shell
 ~ $ poetry init
 ```
 
-There is a `docker-compose.yml` file with a pre-configurated MongoDB service that can be used for **testing and development only**.
-To run the tests, you will need to start it:
+There is a `docker-compose.yml` file with a pre-configurated MongoDB service that can 
+be used for **testing and development only**. To run the tests, you will need to start it:
 
 ```shell
 ~ $ docker-compose up
@@ -65,8 +65,6 @@ You will also need a `.env` for local development and testing. You can copy the
 ```
 
 ### CLI
-
-The CLI is made with a Makefile.
 
 #### Run in development mode
 
@@ -100,21 +98,26 @@ To fix the lint, you can run:
 ~ $ make generate-migrations
 ```
 
-The generated migration will be localized in the `migrations` folder in the root directory and 
-it is generated with [pymongo-migrate](https://github.com/stxnext/pymongo-migrate).
+The generated migration will be localized in the `migrations` folder in the root directory 
+and it is generated with [pymongo-migrate](https://github.com/stxnext/pymongo-migrate). 
+The connection string to MongoDB service used will be the one present in `.env` file.
 
 
 ### Content
 
-We have two parent folders: `app` and `test`. As you may have guessed, `app` contains the app 
-files and `test` have all the tests and fixtures. The `test` folder structure is mirrored 
-from `app`, so you can easily find where the tests are.
+We have two parent folders: `app` and `test`. As you may have guessed, `app` contains the 
+app files and `test` have all the tests and fixtures. The `test` folder structure is 
+mirrored from `app`, so you can easily find where the tests are.
 
 Inside the `app` folder, there are three sub-folders: 
 
-- `api` which contains the API stuff as schemas, rest views and queries.
+- `api` which contains API sub-folders as `schema` (for schemas), `rest` (for RESTful views)
+and `query` (for queries).
 - `common` with common files like a settings file.
 - `model` with the MongoDB collection models.
+
+The design pattern that I tried to use is always create specific files for specific 
+resources and create a common module/file if that code will be used by different resources.
 
 Explore the project to understand what is going on and what you have to change to adapt the 
 template to your project.
@@ -129,30 +132,20 @@ A `Makefile` with the CLI commands.
 
 The `setup.cfg` for linting configuration.
 
-### Other configurations
+## Other configurations
 
-#### [codecov](https://codecov.io/)
-
-As this project use codecov, if you would like a coverage report badge, you need to create a 
-[codecov](https://codecov.io/) account e associate it with your project.
-
-#### [sonarcloud.io](sonarcloud.io)
-
-If you would like to check the quality of your code, you need to create a 
-[sonarcloud.io](sonarcloud.io) account.
-
-#### [codeclimate](codeclimate.com)
-
-If you would like to have a maintainability analysis of your code, you should create a 
-[codeclimate](codeclimate.com) account. 
-
+This template is configurated to use codecov to analysis the code coverage. 
+If you would like to do it too, you need to create a [codecov](https://codecov.io/) 
+account e associate it with your project.
 
 ## FAQ
 
 ### Can I use this project in a production environment?
 
-Probably, but with caution. You should have in mind, for example, that the 
-`docker-compose.yml` file provided is not suitable for a production environment.
+Probably, but with caution. Always do a quality analysis with tools line sonarcloud before
+deploying. You should also have in mind that this template do not provide everything for 
+a production environment. For example, the `docker-compose.yml` provided is not suitable 
+for a production environment.
 
 ### Why don't you create a cookiecutter template?
 
