@@ -2,9 +2,9 @@ from flask.views import MethodView
 from flask_smorest import Blueprint
 from flask_smorest.pagination import PaginationParameters
 
-from app.api.cache import cache
-from app.api.query.common import find_by_id
+from app.api.query.recipes import find_recipe_by_id
 from app.api.schema.recipes import RecipeQueryArgsSchema, RecipeSchema
+from app.cache import cache
 from app.model.recipes import Recipe
 
 api = Blueprint("api", __name__, url_prefix="/api/v1/recipes", description="Recipe API")
@@ -36,27 +36,27 @@ class Recipes(MethodView):
 class RecipeById(MethodView):
     # I use a classmethod instead of a object because it is
     # not recomendded to use memoization with objects
-    # (as self reference could always change)
+    # (as the `self` reference could always change)
     # see: https://flask-caching.readthedocs.io/en/latest/#memoization
     @classmethod
     @api.response(RecipeSchema)
     @cache.memoize(timeout=30)
     def get(cls, recipe_id: str):
         """Get recipe by ID"""
-        return find_by_id(Recipe, recipe_id).first()
+        return find_recipe_by_id(Recipe, recipe_id).first()
 
     @classmethod
     @api.arguments(RecipeSchema)
     @api.response(RecipeSchema)
     def put(cls, recipe_data: dict, recipe_id: str):
         """Update existing recipe"""
-        item = find_by_id(Recipe, recipe_id).first()
+        item = find_recipe_by_id(Recipe, recipe_id).first()
         item.update(**recipe_data)
         item.save()
-        return find_by_id(Recipe, recipe_id).first()
+        return find_recipe_by_id(Recipe, recipe_id).first()
 
     @classmethod
     @api.response(code=204)
     def delete(cls, recipe_id: str):
         """Delete recipe"""
-        find_by_id(Recipe, recipe_id).delete()
+        find_recipe_by_id(Recipe, recipe_id).delete()

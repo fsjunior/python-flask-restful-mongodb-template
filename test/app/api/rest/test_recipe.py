@@ -1,4 +1,3 @@
-import json
 from http import HTTPStatus
 
 import pytest
@@ -85,7 +84,11 @@ class TestRecipe:
         response = client.get(
             "/api/v1/recipes/wrong_id"
         )
-        assert response.status_code == HTTPStatus.NOT_FOUND
+        assert response.status_code == HTTPStatus.BAD_REQUEST
+        response_json = response.json
+
+        assert "code" in response_json
+        assert "message" in response_json
 
     def test_should_update_recipe_by_id(self, client, document_recipe):
         response = client.get(
