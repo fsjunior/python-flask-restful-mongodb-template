@@ -105,7 +105,7 @@ The connection string to MongoDB service used will be the one present in `.env` 
 
 ### Content
 
-You will need to explore the project to understand what is going on and what you have to 
+You need to explore the project to understand what is going on and what you have to 
 change to adapt the template to your project. Here some basic info to help:
 
 There are two parent folders: `app` and `test`. As you may have guessed, `app` contains the 
