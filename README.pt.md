@@ -41,6 +41,7 @@ Por favor, veja a seção de [Roadmap](#roadmap) para mais detalhes.
 - [x] Uso de variáveis de ambiente e arquivos .env;
 - [x] Paginação;
 - [x] Migrações/seeding;
+- [x] Suporte a cache;
 - [ ] Mensagens de erro customizadas;
 - [ ] Algum método de autorização;
 - [ ] Exemplo de deploy para um serviço PaaS.
@@ -69,8 +70,6 @@ Você pode copiar o arquivo the exemplo `dotenv.test` para esse propósito.
 ```
 
 ### CLI
-
-O CLI desse projeto foi feito com um arquivo Makefile.
 
 #### Rodar no modo de desenvolvimento
 
@@ -106,7 +105,8 @@ Para consertar o lint, você pode rodar:
 ```
 
 A migration gerada vai estar localizada na pasta `migrations` no diretório raiz. 
-Ela é gerada com o [pymongo-migrate](https://github.com/stxnext/pymongo-migrate).
+Ela é gerada com o [pymongo-migrate](https://github.com/stxnext/pymongo-migrate). 
+A string de conexão usada para se conectar ao MongoDB será a do arquivo `.env`.
 
 
 ### Conteúdo
@@ -118,9 +118,14 @@ da aplicação.
 
 Dentro da pasta `app`, há três outras pastas: 
 
-- `api` que contém as coisas de api, como esquemas, visões e queries.
+- `api` que contém as outras sub-pastas de API `schema`(para esquemas), `rest` (para visões 
+RESTful) e `query` (para queries no banco).
 - `common` com os arquivos comum a todo projecto como um arquivo de configurações (`settings`).
 - `model` com os modelos das coleções do MongoDB.
+
+O padrão de projeto que eu tentei usar aqui é sempre criar arquivos e módulos específicos 
+para recursos específicos e criar um arquivo/módulo `common` para códigos que serão usados
+por diferentes recursos.
 
 Explore essas pastas para entender o que está acontecendo o que você tem que modificar para
 adaptar o template para seu projeto.
@@ -135,31 +140,22 @@ O arquivo `Makefile` com os comandos CLI.
 
 O arquivo `setup.cfg` com a configuração do lint.
 
-### Outras configurações
+## Outras configurações
 
-#### [codecov](https://codecov.io/)
-
-Como esse template usa o codecov, se você gostaria de ter uma badge de cobertura de código
-do relatório, você precisa criar uma conta no [codecov](https://codecov.io/) a associa-la
-com seu projeto.
-
-#### [sonarcloud.io](sonarcloud.io)
-
-Para fazer verificação de qualidade de código, você precisa de uma conta do 
-[sonarcloud.io](sonarcloud.io).
-
-#### [codeclimate](codeclimate.com)
-
-Para fazer uma análise de manutenibilidade, você precisa fazer uma conta no 
-[codeclimate](codeclimate.com). 
+Esse template está configurado para usar o codecov para fazer análises de cobertura de 
+código. Se você quer ativar isso também em seu projeto, vai precisar criar uma conta
+ em [codecov](https://codecov.io/) e associar ao seu projeto.
 
 
 ## Perguntas Frequentes
 
 ### Posso usar esse projeto em um ambiente de produção?
 
-Provavelmente, mas com precauções. Você deve ter em mente, por exemplo, que o arquivo 
-`docker-compose.yml` fornecido não é adequado para um ambiente de produção.
+Provavelmente, mas com precauções. Você sempre deve fazer uma análise de qualidade de código
+com ferramentas como o sonarcloud antes de fazer um deploy em um ambiente de produção. 
+Você deve ter em mente também que nem tudo que é fornecido nesse template é adequado para
+um ambiente de produção. Por exemplo, o arquivo `docker-compose.yml` fornecido não 
+deveria ser usado nesse ambiente.
 
 ### Por que você não cria um template para o cookiecutter?
 
