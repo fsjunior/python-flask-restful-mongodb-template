@@ -105,22 +105,23 @@ The connection string to MongoDB service used will be the one present in `.env` 
 
 ### Content
 
+You will need to explore the project to understand what is going on and what you have to 
+change to adapt the template to your project. Here some basic info to help:
+
 There are two parent folders: `app` and `test`. As you may have guessed, `app` contains the 
 app files and `test` have all the tests and fixtures. The `test` folder structure is 
 mirrored from `app`, so it is easy to find where the tests are.
 
 Inside the `app` folder, there are three sub-folders: 
 
-- `api` which contains API sub-folders as `schema` (for schemas), `rest` (for RESTful views)
+- `api` which contains API sub-folders `schema` (for schemas), `rest` (for RESTful views)
 and `query` (for queries).
 - `common` with common files like a settings file.
 - `model` with the MongoDB collection models.
 
-The design pattern that I tried to use is always create specific files for specific 
-resources and create a common module/file if that code will be used by different resources.
-
-Explore the project to understand what is going on and what you have to change to adapt the 
-template to your project.
+The files and folders organization pattern that I tried to use is always create specific 
+files for specific resources and create a common module/file if that code will be used by 
+different resources.
 
 In the root directory, there are other important files as well:
 
@@ -134,7 +135,7 @@ The `setup.cfg` for linting configuration.
 
 ## Other configurations
 
-This template is configurated to use codecov to analysis the code coverage. 
+This template is configured to use codecov to analysis the code coverage. 
 If you would like to do it too, you need to create a [codecov](https://codecov.io/) 
 account e associate it with your project.
 
@@ -142,7 +143,7 @@ account e associate it with your project.
 
 ### Can I use this project in a production environment?
 
-Probably, but with caution. Always do a quality analysis with tools line sonarcloud before
+Probably, but with caution. Always do a quality analysis with tools like sonarcloud before
 deploying. You should also have in mind that this template do not provide everything for 
 a production environment. For example, the `docker-compose.yml` provided is not suitable 
 for a production environment.

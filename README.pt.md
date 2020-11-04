@@ -117,7 +117,7 @@ da aplicação.
 
 Dentro da pasta `app`, há três outras pastas: 
 
-- `api` que contém as coisas de api, como `schema`(para esquemas), `rest` (para visões 
+- `api` que contém as outras sub-pastas de API `schema`(para esquemas), `rest` (para visões 
 RESTful) e `query` (para queries no banco).
 - `common` com os arquivos comum a todo projecto como um arquivo de configurações (`settings`).
 - `model` com os modelos das coleções do MongoDB.
