@@ -5,14 +5,12 @@ from flask_mongoengine import MongoEngine
 
 from app.api.routes import configure_routes
 from app.cache import configure_cache
+from app.config import FlaskConfiguration
 
 
-def create_app(testing=False):
+def create_app():
     app = Flask("python-flask-restful-seed")
-    app.config.from_object("app.config.Configuration")
-
-    if testing is True:
-        app.config["TESTING"] = True
+    app.config.from_object(FlaskConfiguration)
 
     configure_cors(app)
     configure_marshmallow(app)

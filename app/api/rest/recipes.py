@@ -7,7 +7,12 @@ from app.api.schema.recipes import RecipeQueryArgsSchema, RecipeSchema
 from app.cache import cache
 from app.model.recipes import Recipe
 
-api = Blueprint("api", __name__, url_prefix="/api/v1/recipes", description="Recipe API")
+api = Blueprint(
+    "Recipes API",
+    __name__,
+    url_prefix="/api/v1/recipes",
+    description="In this API you can create, search or update recipes.",
+)
 
 
 @api.route("")
