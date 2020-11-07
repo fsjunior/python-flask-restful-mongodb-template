@@ -8,14 +8,15 @@
 
 *Documentação também disponível em [português](README.pt.md) 🇧🇷.*
 
-A simple and powerful 🐍+flask RESTful template/seed with MongoDB.
+A simple and powerful 🐍+flask RESTful template with MongoDB.
 
 **Warning**: this project is not finished yet and some important features may still be
 missing. Please see the [Roadmap](#roadmap) for more details.
 
-## What this template/seed have
+## What this template have
 
-- Bleeding edge [Python 3.9](https://docs.python.org/3.9/whatsnew/3.9.html);
+- Bleeding edge [Python 3.9](https://docs.python.org/3.9/whatsnew/3.9.html) (although 
+this template probably will work with older Python versions as well);
 - [Flask](flask.palletsprojects.com) micro-framework;
 - RESTful API with pagination and Swagger/ReDoc OpenAPI specification using the incredible [flask-smorest](https://flask-smorest.readthedocs.io/en/latest/);
 - Schemas with [marshmallow](https://marshmallow.readthedocs.io/en/stable/);
@@ -35,7 +36,7 @@ and [pytest-cov](https://github.com/pytest-dev/pytest-cov);
 - [x] CI working;
 - [x] 100% testing code coverage;
 - [x] Simple restful API;
-- [x] OpenAPI/Swagger/Redoc documentation.
+- [x] OpenAPI/Swagger/ReDoc documentation.
 - [x] Make project use environment variables and .env files;
 - [x] Pagination;
 - [x] Migrations/seeding;
@@ -48,64 +49,47 @@ and [pytest-cov](https://github.com/pytest-dev/pytest-cov);
 
 After cloning this repository for your project, init the `poetry` environment:
 
-```shell
+```console
 ~ $ poetry init
 ```
 
 There is a `docker-compose.yml` file with a pre-configurated MongoDB service that can
 be used for **testing and development only**. To run the tests, you will need to start it:
 
-```shell
+```console
 ~ $ docker-compose up
 ```
 
 You will also need a `.env` file for local development and testing. You can copy the
 `dotenv.test` file for this purpose.
 
-```shell
+```console
 ~ $ cp dotenv.test .env
 ```
 
-### CLI
+Now you can run the tests
 
-#### Run in development mode
+```console
+~ $ make coverage
+```
 
-```shell
+Or you can run the template in development mode
+
+```console
 ~ $ make run-dev
 ```
 
-(Don't forget to start the MongoDB service and to copy the .env file 😉)
+Go to your browser to access the Swagger or ReDoc auto-generated docs:
 
-#### Check all linting and tests
-
-This will check the linting (`isort`, `flake8` and `black`), the static typing (`mypy`)
-will do a security analysis (`bandit`) and will analayze the code coverage (`pytest --cov`).
-
-```shell
-~ $ make check-all
+```
+http://127.0.0.1:8080/doc/swagger
+http://127.0.0.1:8080/doc/redoc
 ```
 
-You can also run these steps separately with the `check-lint`, `check-typing`, `check-security`
-and `coverage` make targets.
 
-To fix the lint, you can run:
+## The template
 
-```shell
-~ $ make fix-lint
-```
-
-#### Create a migration
-
-```shell
-~ $ make generate-migrations
-```
-
-The generated migration will be placed in the `migrations` folder in the root directory
-and it is generated with [pymongo-migrate](https://github.com/stxnext/pymongo-migrate).
-The connection string to MongoDB service used is the one present in `.env` file.
-
-
-### The template
+#### Rationale
 
 I avoided creating my own solutions (aka reinvent the wheel) in this template to keep it
 as simple as possible. Almost every feature here is provided by the libraries that I used
@@ -114,6 +98,8 @@ as simple as possible. Almost every feature here is provided by the libraries th
 The files and folders structure pattern that I tried to follow is always use specific
 files for specific resources and use a common module/file to the that code will be used by
 different resources.
+
+#### Structure
 
 You need to explore the files and folders structure to understand the code and
 what you have to change to adapt the template to your project. Here some basic info to help:
@@ -124,8 +110,8 @@ mirrored from `app`, so it is easy to find where the tests are.
 
 Inside the `app` folder, there are three sub-folders:
 
-- `api` which contains API sub-folders `schema` (for schemas), `rest` (for RESTful views)
-and `query` (for queries).
+- `api` which contains API sub-folders `schema` (for schemas), `rest` (for RESTful views), 
+`query` (for queries) and `exceptions` (for exceptions definitions).
 - `common` with common files like a settings file.
 - `model` with the MongoDB collection models.
 
@@ -138,6 +124,36 @@ The `run.py`, the entry point of the service.
 A `Makefile` with the CLI commands.
 
 The `setup.cfg` for linting configuration.
+
+## CLI
+
+#### Check all linting and tests
+
+This will check the linting (`isort`, `flake8` and `black`), the static typing (`mypy`)
+will do a security analysis (`bandit`) and will analayze the code coverage (`pytest --cov`).
+
+```console
+~ $ make check-all
+```
+
+You can also run these steps separately with the `check-lint`, `check-typing`, `check-security`
+and `coverage` make targets.
+
+To fix the lint, you can run:
+
+```console
+~ $ make fix-lint
+```
+
+#### Create a migration
+
+```console
+~ $ make generate-migrations
+```
+
+The generated migration will be placed in the `migrations` folder in the root directory
+and it is generated with [pymongo-migrate](https://github.com/stxnext/pymongo-migrate).
+The connection string to MongoDB service used is the one present in `.env` file.
 
 ## Other configurations
 
@@ -166,6 +182,6 @@ Of course! If you would like to see a new feature, please open a new issue.
 
 ## License
 
-Created and maintained by Francisco de Souza Júnior (2020).
+Copyright (c) 2020 Francisco de Souza Júnior.
 
 Licensed under the [MIT License](https://github.com/fsjunior/python-flask-restful-mongodb-template/blob/main/LICENSE).

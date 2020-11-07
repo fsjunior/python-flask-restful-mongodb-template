@@ -1,14 +1,8 @@
-"""Default configuration
-
-Use env var to override
-"""
-import os
-
 from app.common import settings
 
 
-class Configuration:
-    ENV = os.getenv("FLASK_ENV")
+class FlaskConfiguration:
+    ENV = settings.app_env
     DEBUG = ENV == "development"
     API_TITLE = settings.app_name
     API_VERSION = settings.app_version
@@ -17,15 +11,15 @@ class Configuration:
         "host": settings.mongodb_uri,
     }
 
-    OPENAPI_VERSION = "3.0.3"
-    OPENAPI_URL_PREFIX = os.getenv("OPENAPI_URL_PREFIX")
+    OPENAPI_VERSION = settings.openapi_version
+    OPENAPI_URL_PREFIX = settings.openapi_url_prefix
 
-    OPENAPI_SWAGGER_UI_PATH = os.getenv("OPENAPI_SWAGGER_UI_PATH")
-    OPENAPI_SWAGGER_UI_URL = os.getenv("OPENAPI_SWAGGER_UI_URL")
+    OPENAPI_SWAGGER_UI_PATH = settings.openapi_swagger_ui_path
+    OPENAPI_SWAGGER_UI_URL = settings.openapi_swagger_ui_url
 
-    OPENAPI_REDOC_PATH = os.getenv("OPENAPI_REDOC_PATH")
-    OPENAPI_REDOC_URL = os.getenv("OPENAPI_REDOC_URL")
+    OPENAPI_REDOC_PATH = settings.openapi_redoc_path
+    OPENAPI_REDOC_URL = settings.openapi_redoc_url
 
     API_SPEC_OPTIONS = {
-        "info": {"title": API_TITLE, "description": ""},
+        "info": {"title": API_TITLE, "description": settings.app_description},
     }

@@ -36,7 +36,7 @@ Por favor, veja a seção de [Roadmap](#roadmap) para mais detalhes.
 - [x] CI funcionando;
 - [x] 100% de cobertura de código pelos testes;
 - [x] API restful simples;
-- [x] Documentação com OpenAPI/Swagger/Redoc;
+- [x] Documentação com OpenAPI/Swagger/ReDoc;
 - [x] Uso de variáveis de ambiente e arquivos .env;
 - [x] Paginação;
 - [x] Migrações/seeding;
@@ -68,15 +68,66 @@ Você pode copiar o arquivo the exemplo `dotenv.test` para esse propósito.
 ~ $ cp dotenv.test .env
 ```
 
-### CLI
+Agora você pode rodar os testes:
 
-#### Rodar no modo de desenvolvimento
+```shell
+~ $ make coverage
+```
+
+Ou rodar o template no modo de desenvolvimento:
 
 ```shell
 ~ $ make run-dev
 ```
 
-(Não esqueça do serviço MongoDB e o arquivo .env 😉)
+No seu navegador você pode acessar a documentação Swagger ou ReDoc:
+
+```
+http://127.0.0.1:8080/doc/swagger
+http://127.0.0.1:8080/doc/redoc
+```
+
+### O template
+
+#### Filosofia
+
+Eu evitei criar minhas próprias soluções (aka reinventar a roda) nesse template para 
+deixá-lo o mais simples possível. Praticamente todas as *features* aqui são fornecidas 
+pelas bibliotecas usadas (por exemplo: a páginação já é fornecida pelas bibliotecas 
+flask-smorest e flask-mongoengine).
+
+O padrão de projeto que eu tentei usar aqui é sempre criar arquivos e módulos específicos 
+para recursos específicos e criar um arquivo/módulo `common` para códigos que serão usados
+por diferentes recursos.
+
+#### Estrutura
+
+Explore essas pastas para entender o que está acontecendo o que você tem que modificar para
+adaptar o template para seu projeto. Aqui uma breve explicação para ajudar:
+
+O projeto tem duas pastas na raíz: `app` e `test`. Como você deve ter adivinhado, a pasta `app`
+contém os arquivos do aplicativo enquanto a pasta `test` tem todos os testes e *fixtures*.
+A estrutura da pasta `test` é espelhada da pasta `app`, assim fica mais fácil achar os testes
+da aplicação.
+
+Dentro da pasta `app`, há três outras pastas: 
+
+- `api` que contém as outras sub-pastas de API `schema`(para esquemas), `rest` (para visões 
+RESTful) e `query` (para queries no banco).
+- `common` com os arquivos comum a todo projecto como um arquivo de configurações (`settings`).
+- `model` com os modelos das coleções do MongoDB.
+
+No diretório raíz, há outros arquivos importantes também:
+
+Um arquivo `Procfile` com os targets web e release (que aplica a migration).
+
+O arquivo `run.py`, o ponto de entrada do serviço.
+
+O arquivo `Makefile` com os comandos CLI.
+
+O arquivo `setup.cfg` com a configuração do lint.
+
+## CLI
 
 #### Checar o lint e os testes
 
@@ -107,51 +158,11 @@ A migration gerada vai estar localizada na pasta `migrations` no diretório raiz
 Ela é gerada com o [pymongo-migrate](https://github.com/stxnext/pymongo-migrate). 
 A string de conexão usada para se conectar ao MongoDB será a do arquivo `.env`.
 
-
-### O template
-
-Eu evitei criar minhas próprias soluções nesse templete para deixá-lo o mais simples 
-possível. Praticamente todas as *features* aqui são fornecidas pelas bibliotecas usadas 
-(por exemplo: a páginação já é fornecida pelas bibliotecas flask-smorest e 
-flask-mongoengine).
-
-O padrão de projeto que eu tentei usar aqui é sempre criar arquivos e módulos específicos 
-para recursos específicos e criar um arquivo/módulo `common` para códigos que serão usados
-por diferentes recursos.
-
-Explore essas pastas para entender o que está acontecendo o que você tem que modificar para
-adaptar o template para seu projeto. Aqui uma breve explicação para ajudar:
-
-O projeto tem duas pastas na raíz: `app` e `test`. Como você deve ter adivinhado, a pasta `app`
-contém os arquivos do aplicativo enquanto a pasta `test` tem todos os testes e *fixtures*.
-A estrutura da pasta `test` é espelhada da pasta `app`, assim fica mais fácil achar os testes
-da aplicação.
-
-Dentro da pasta `app`, há três outras pastas: 
-
-- `api` que contém as outras sub-pastas de API `schema`(para esquemas), `rest` (para visões 
-RESTful) e `query` (para queries no banco).
-- `common` com os arquivos comum a todo projecto como um arquivo de configurações (`settings`).
-- `model` com os modelos das coleções do MongoDB.
-
-
-
-No diretório raíz, há outros arquivos importantes também:
-
-Um arquivo `Procfile` com os targets web e release (que aplica a migration).
-
-O arquivo `run.py`, o ponto de entrada do serviço.
-
-O arquivo `Makefile` com os comandos CLI.
-
-O arquivo `setup.cfg` com a configuração do lint.
-
 ## Outras configurações
 
 Esse template está configurado para usar o codecov para fazer análises de cobertura de 
 código. Se você quer ativar isso também em seu projeto, vai precisar criar uma conta
  em [codecov](https://codecov.io/) e associar ao seu projeto.
-
 
 ## Perguntas Frequentes
 
