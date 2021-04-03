@@ -13,7 +13,7 @@ jobs:
   run:
     services:
       database:
-        image: mongo:4.4.1-bionic
+        image: mongo:4.4.4-bionic
         ports:
           - 27017:27017
     runs-on: ubuntu-latest

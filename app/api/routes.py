@@ -4,7 +4,7 @@ from flask import Flask
 from flask_smorest import Api, Blueprint
 
 
-# Unfortunately mypy still does not support PEP 585 which allows
+# mypy still does not support PEP 585 which allows
 # annotations like list[Blueprint] in Python ^3.9
 def register_routes(app: Flask, routes: List[Blueprint]):
     api = Api(app)
