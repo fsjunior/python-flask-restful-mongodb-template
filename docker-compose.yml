@@ -7,7 +7,7 @@ version: '2.2'
 
 services:
   mongo:
-    image: mongo:4.4.1-bionic
+    image: mongo:4.4.4-bionic
     hostname: mongo
     ports:
       - 27017:27017
