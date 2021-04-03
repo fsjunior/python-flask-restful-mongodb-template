@@ -42,7 +42,6 @@ Por favor, veja a seção de [Roadmap](#roadmap) para mais detalhes.
 - [x] Migrações/seeding;
 - [x] Suporte a cache;
 - [x] Mensagens de erro customizadas;
-- [ ] Algum método de autorização;
 - [ ] Exemplo de deploy para um serviço PaaS.
 
 
@@ -166,6 +165,12 @@ código. Se você quer ativar isso também em seu projeto, vai precisar criar um
 
 ## Perguntas Frequentes
 
+### Esse projeto não é útil, já que não há nenhum mecanismo de autentição
+
+Autentição (e autorização) são geralmente dependentes de ambiente. É muito
+difícil achar uma biblioteca que poderá ser utilizada para a maioria dos casos.
+Por isso, eu decidi não colocar nenhum mecanismo de Autentição (e autorização) aqui.
+
 ### Posso usar esse projeto em um ambiente de produção?
 
 Provavelmente, mas com precauções. Você sempre deve fazer uma análise de qualidade de código
@@ -176,7 +181,8 @@ deveria ser usado nesse ambiente.
 
 ### Por que você não cria um template para o cookiecutter?
 
-Embora eu gosto do cookiecutter, eu acho que esse template é tão simples e fácil de entender que não há necessidade de se criar um template do cookiecutter pra ele.
+Embora eu gosto do cookiecutter, eu acho que esse template é tão simples e fácil de entender 
+que não há necessidade de se criar um template do cookiecutter pra ele.
 
 ### Posso contribuir para esse projeto?
 
@@ -184,6 +190,6 @@ Claro! Se você gostaria de ver uma nova feature, abra uma nova issue.
 
 ## Licença
 
-Criado e mantido por Francisco de Souza Júnior (2020).
+Criado e mantido por Francisco de Souza Júnior (2021).
 
 Licenciado sob a [Licença MIT](https://github.com/fsjunior/python-flask-restful-mongodb-template/blob/main/LICENSE).

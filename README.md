@@ -42,22 +42,22 @@ and [pytest-cov](https://github.com/pytest-dev/pytest-cov);
 - [x] Migrations/seeding;
 - [x] Simple requests caching support
 - [x] Customized error messages;
-- [ ] Some authorization method;
 - [ ] CD example to a PaaS.
 
 ## Getting started
 
-After cloning this repository for your project, init the `poetry` environment:
+After cloning this repository for your project, init the `poetry` environment and install 
+the project dependencies:
 
 ```console
-~ $ poetry init
+~ $ poetry install
 ```
 
-There is a `docker-compose.yml` file with a pre-configurated MongoDB service that can
-be used for **testing and development only**. To run the tests, you will need to start it:
+A `docker-compose.yml` file is provided with a pre-configurated MongoDB service that can
+be used for **testing and development**. To run the tests, you will need to start it:
 
 ```console
-~ $ docker-compose up
+~ $ docker-compose up -d
 ```
 
 You will also need a `.env` file for local development and testing. You can copy the
@@ -91,18 +91,19 @@ http://127.0.0.1:8080/doc/redoc
 
 #### Rationale
 
-I avoided creating my own solutions (aka reinvent the wheel) in this template to keep it
-as simple as possible. Almost every feature here is provided by the libraries that I used
+Almost every feature here is provided by the libraries that I'm using
 (e.g. pagination is provided by flask-smorest and flask-mongoengine).
+So, most of the code here is just glue code and library configurations.
 
-The files and folders structure pattern that I tried to follow is always use specific
-files for specific resources and use a common module/file to the that code will be used by
-different resources.
+Files and folders structure pattern: I always use specific files for 
+specific resources and use a `common` module/file to the that code will 
+be used by different resources.
 
 #### Structure
 
-You need to explore the files and folders structure to understand the code and
-what you have to change to adapt the template to your project. Here some basic info to help:
+Explore the files and folders structure to understand the code and
+what you have to change to adapt the template to your project. 
+Here some basic info to help:
 
 There are two parent folders: `app` and `test`. As you may have guessed, `app` contains the
 app files and `test` have all the tests and fixtures. The `test` folder structure is
@@ -163,6 +164,12 @@ account e associate it with your project.
 
 ## FAQ
 
+### This template is useless, as you did not used any authentication method for it
+
+Authentication (and authorization) are normally environment dependent. It is
+hard to use a library that will be suitable for most of the use cases. Thus, I 
+decided to not put any authentication (or authorization) method here. 
+
 ### Can I use this template in a production environment?
 
 Probably, but with caution. Always do a quality analysis with tools like
@@ -182,6 +189,6 @@ Of course! If you would like to see a new feature, please open a new issue.
 
 ## License
 
-Copyright (c) 2020 Francisco de Souza Júnior.
+Copyright (c) 2021 Francisco de Souza Júnior.
 
 Licensed under the [MIT License](https://github.com/fsjunior/python-flask-restful-mongodb-template/blob/main/LICENSE).
