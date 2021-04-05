@@ -46,3 +46,6 @@ run-dev:
 generate-migrations:
 	pymongo-migrate generate -u $(MONGODB_URI) -m migrations
 	echo "Migration template generated in 'migrations' directory. Please review the generated file."
+
+migrate-dev:
+	pymongo-migrate migrate -u $(MONGODB_URI) -m migrations
