@@ -8,10 +8,7 @@
 
 A simple and powerful 🐍+flask RESTful template with MongoDB.
 
-**Warning**: this project is not finished yet and some important features may still be
-missing. Please see the [Roadmap](#roadmap) for more details.
-
-## What this template have
+## Features
 
 - Bleeding edge [Python 3.9](https://docs.python.org/3.9/whatsnew/3.9.html) (although 
 this template probably will work with older Python versions as well);
@@ -19,30 +16,18 @@ this template probably will work with older Python versions as well);
 - RESTful API with pagination and Swagger/ReDoc OpenAPI specification with [flask-smorest](https://flask-smorest.readthedocs.io/en/latest/);
 - Schemas with [marshmallow](https://marshmallow.readthedocs.io/en/stable/);
 - ODM with [mongoengine](http://mongoengine.org/);
-- Testing and coverage reports with [pytest](https://docs.pytest.org/en/stable/)
+- Migrations and seeding support with [pymongo-migrate](https://github.com/stxnext/pymongo-migrate);
+- 100% code coverage tests using [pytest](https://docs.pytest.org/en/stable/)
 and [pytest-cov](https://github.com/pytest-dev/pytest-cov);
-- Coverage report upload and badging with [codecov](https://codecov.io/);
-- Static typing enforcement with [mypy](https://github.com/python/mypy);
-- Linting with [pylint](https://github.com/PyCQA/pylint/),
-[black](https://github.com/psf/black) and [isort](https://pypi.org/project/isort/);
+- Linting with [pylint](https://github.com/PyCQA/pylint/), 
+  [mypy](https://github.com/python/mypy), [black](https://github.com/psf/black) and [isort](https://pypi.org/project/isort/);
 - Security analysis with [bandit](https://github.com/PyCQA/bandit);
 - Dependencies and environment management [poetry](https://python-poetry.org/);
 - [Pre-commit](https://github.com/pre-commit/pre-commit) hooks;
 - Continuous Integration with [github actions](https://github.com/features/actions).
+- Support for PaaS (Heroku);   
+- API examples.
 
-## Features
-
-- [x] CI working;
-- [x] 100% testing code coverage;
-- [x] Simple restful API;
-- [x] OpenAPI/Swagger/ReDoc documentation.
-- [x] Make project use environment variables and .env files;
-- [x] Pagination;
-- [x] Migrations/seeding;
-- [x] Simple requests caching support
-- [x] Customized error messages;
-- [X] PaaS files (Procfile, runtime.txt);
-- [x] Example Postman collection.
 
 ## Getting started
 
@@ -142,7 +127,7 @@ The `pyproject.toml` have the entire project configuration (linting, poetry etc)
 
 ## CLI
 
-#### Check all linting and tests
+#### Tinting and coverage
 
 This will lint and fix (if possible) the code. This will run `isort`, `pylint`, `black`,
 `mypy` and `bandit`. Finally, this is also will run the coverage analysis (`pytest --cov`).
@@ -169,7 +154,16 @@ account e associate it with your project.
 
 ## FAQ
 
-### This template is useless, as you did not used any authentication method for it
+### Why do you have a requirements.txt if you use Poetry?
+
+The dependency management is made with Poetry, but Heroku buildpack uses the 
+`requirements.txt` if you want to deploy in a PaaS. To generate the file with the poetry, run: 
+
+```console
+~ $ poetry export -f requirements.txt --output requirements.txt
+``` 
+
+### This template is not useful, as you did not use any authentication method for it
 
 Authentication (and authorization) are normally environment dependent. It is
 hard to use a library or method that will be suitable for most of the use 
