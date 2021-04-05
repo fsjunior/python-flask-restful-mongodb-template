@@ -15,6 +15,9 @@ test: clean
 	poetry run pytest test
 	poetry run pytest --dead-fixtures --dup-fixtures test
 
+make check-all: coverage
+	pre-commit run --all-files
+
 coverage: clean
 	poetry run pytest --dead-fixtures --dup-fixtures test
 	poetry run pytest test --cov --cov-fail-under=99 --cov-report=term-missing

@@ -138,26 +138,17 @@ The `run.py`, the entry point of the service.
 
 A `Makefile` with the CLI commands.
 
-The `setup.cfg` for linting configuration.
+The `pyproject.toml` have the entire project configuration (linting, poetry etc).
 
 ## CLI
 
 #### Check all linting and tests
 
-This will check the linting (`isort`, `flake8` and `black`), the static typing (`mypy`)
-will do a security analysis (`bandit`) and will analayze the code coverage (`pytest --cov`).
+This will lint and fix (if possible) the code. This will run `isort`, `pylint`, `black`,
+`mypy` and `bandit`. Finally, this is also will run the coverage analysis (`pytest --cov`).
 
 ```console
 ~ $ make check-all
-```
-
-You can also run these steps separately with the `check-lint`, `check-typing`, `check-security`
-and `coverage` make targets.
-
-To fix the lint, you can run:
-
-```console
-~ $ make fix-lint
 ```
 
 #### Create a migration
