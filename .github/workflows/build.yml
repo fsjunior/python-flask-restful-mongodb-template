@@ -31,15 +31,9 @@ jobs:
     - name: Configure environment
       run: |
         cp dotenv.test .env
-    - name: Lint (Flake8, isort, black)
+    - name: Code Quality (Pylint, isort, black, mypy and bandit)
       run: |
-        make check-lint
-    - name: Typing check (mypy)
-      run: |
-        make check-typing
-    - name: Security analysis (bandit)
-      run: |
-        make check-security
+        pre-commit run --all-files
     - name: Coverage
       env:
         FLASK_ENV: development

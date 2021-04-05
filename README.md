@@ -6,8 +6,6 @@
 [![quality gate](https://img.shields.io/sonar/quality_gate/fsjunior_python-flask-restful-mongodb-template?server=https%3A%2F%2Fsonarcloud.io)](https://sonarcloud.io/dashboard?id=fsjunior_python-flask-restful-mongodb-template)
 ![GitHub last commit](https://img.shields.io/github/last-commit/fsjunior/python-flask-restful-mongodb-template)
 
-*Documentação também disponível em [português](README.pt.md) 🇧🇷.*
-
 A simple and powerful 🐍+flask RESTful template with MongoDB.
 
 **Warning**: this project is not finished yet and some important features may still be
@@ -18,20 +16,21 @@ missing. Please see the [Roadmap](#roadmap) for more details.
 - Bleeding edge [Python 3.9](https://docs.python.org/3.9/whatsnew/3.9.html) (although 
 this template probably will work with older Python versions as well);
 - [Flask](flask.palletsprojects.com) micro-framework;
-- RESTful API with pagination and Swagger/ReDoc OpenAPI specification using the incredible [flask-smorest](https://flask-smorest.readthedocs.io/en/latest/);
+- RESTful API with pagination and Swagger/ReDoc OpenAPI specification with [flask-smorest](https://flask-smorest.readthedocs.io/en/latest/);
 - Schemas with [marshmallow](https://marshmallow.readthedocs.io/en/stable/);
 - ODM with [mongoengine](http://mongoengine.org/);
 - Testing and coverage reports with [pytest](https://docs.pytest.org/en/stable/)
 and [pytest-cov](https://github.com/pytest-dev/pytest-cov);
 - Coverage report upload and badging with [codecov](https://codecov.io/);
 - Static typing enforcement with [mypy](https://github.com/python/mypy);
-- Linting with [flake8](https://gitlab.com/pycqa/flake8),
+- Linting with [pylint](https://github.com/PyCQA/pylint/),
 [black](https://github.com/psf/black) and [isort](https://pypi.org/project/isort/);
 - Security analysis with [bandit](https://github.com/PyCQA/bandit);
 - Dependencies and environment management [poetry](https://python-poetry.org/);
+- [Pre-commit](https://github.com/pre-commit/pre-commit) hooks;
 - Continuous Integration with [github actions](https://github.com/features/actions).
 
-## Roadmap
+## Features
 
 - [x] CI working;
 - [x] 100% testing code coverage;
@@ -42,7 +41,8 @@ and [pytest-cov](https://github.com/pytest-dev/pytest-cov);
 - [x] Migrations/seeding;
 - [x] Simple requests caching support
 - [x] Customized error messages;
-- [ ] CD example to a PaaS.
+- [X] PaaS files (Procfile, runtime.txt);
+- [x] Example Postman collection.
 
 ## Getting started
 
@@ -51,6 +51,12 @@ the project dependencies:
 
 ```console
 ~ $ poetry install
+```
+
+Install pre-commit hooks:
+
+```console
+~ $ pre-commit install
 ```
 
 A `docker-compose.yml` file is provided with a pre-configurated MongoDB service that can
@@ -86,17 +92,21 @@ http://127.0.0.1:8080/doc/swagger
 http://127.0.0.1:8080/doc/redoc
 ```
 
+### Demo
+
+This template is up and running on http://flask-template.chico.codes 
+(with POST, PUT and DELETE disabled for security reasons). 
+Try it: http://flask-template.chico.codes/doc/swagger
+
 
 ## The template
-
-#### Rationale
 
 Almost every feature here is provided by the libraries that I'm using
 (e.g. pagination is provided by flask-smorest and flask-mongoengine).
 So, most of the code here is just glue code and library configurations.
 
-Files and folders structure pattern: I always use specific files for 
-specific resources and use a `common` module/file to the that code will 
+Files and folders structure pattern: there are specific files for 
+specific resources and a `common` module/file to the that code will 
 be used by different resources.
 
 #### Structure
@@ -105,8 +115,12 @@ Explore the files and folders structure to understand the code and
 what you have to change to adapt the template to your project. 
 Here some basic info to help:
 
-There are two parent folders: `app` and `test`. As you may have guessed, `app` contains the
-app files and `test` have all the tests and fixtures. The `test` folder structure is
+There are four parent folders: `migrations`, `postman`, `app` and `test`.
+- The folder `migrations` have the migrations that will be executed by the
+`release` command in `Procfile`.
+- The `postman` folder have a [Postman](https://www.postman.com/) collection. 
+- As you may have guessed, `app` contains the app files and
+- `test` have all the tests and fixtures. The `test` folder structure is
 mirrored from `app`, so it is easy to find where the tests are.
 
 Inside the `app` folder, there are three sub-folders:
@@ -167,8 +181,9 @@ account e associate it with your project.
 ### This template is useless, as you did not used any authentication method for it
 
 Authentication (and authorization) are normally environment dependent. It is
-hard to use a library that will be suitable for most of the use cases. Thus, I 
-decided to not put any authentication (or authorization) method here. 
+hard to use a library or method that will be suitable for most of the use 
+cases. For this reason, I decided to not put any authentication 
+(or authorization) method here. 
 
 ### Can I use this template in a production environment?
 
