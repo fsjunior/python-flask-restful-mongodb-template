@@ -127,7 +127,7 @@ The `pyproject.toml` have the entire project configuration (linting, poetry etc)
 
 ## CLI
 
-#### Tinting and coverage
+#### Linting and coverage
 
 This will lint and fix (if possible) the code. This will run `isort`, `pylint`, `black`,
 `mypy` and `bandit`. Finally, this is also will run the coverage analysis (`pytest --cov`).
