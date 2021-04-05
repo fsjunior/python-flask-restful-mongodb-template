@@ -33,7 +33,7 @@ jobs:
         cp dotenv.test .env
     - name: Code Quality (Pylint, isort, black, mypy and bandit)
       run: |
-        pre-commit run --all-files
+        poetry run pre-commit run --all-files
     - name: Coverage
       env:
         FLASK_ENV: development
