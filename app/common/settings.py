@@ -70,4 +70,6 @@ class Settings:
 
     @property
     def openapi_redoc_url(self) -> str:
-        return self._get_env("OPENAPI_REDOC_URL", str, "https://cdn.jsdelivr.net/npm/redoc@2.0.0-rc.45/bundles/redoc.standalone.js")
+        return self._get_env(
+            "OPENAPI_REDOC_URL", str, "https://cdn.jsdelivr.net/npm/redoc@2.0.0-rc.45/bundles/redoc.standalone.js"
+        )
