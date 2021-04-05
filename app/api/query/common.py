@@ -10,8 +10,8 @@ from app.api.exceptions.common import InvalidObjectIdException
 def _validate_objectid(doc_id: str):
     try:
         ObjectId(doc_id)
-    except Exception:
-        raise InvalidObjectIdException()
+    except Exception as ex:
+        raise InvalidObjectIdException() from ex
 
 
 def find_by_id(doc_class: Type[Document], doc_id: str, not_found_exception: Type[Exception] = NotFound) -> Document:

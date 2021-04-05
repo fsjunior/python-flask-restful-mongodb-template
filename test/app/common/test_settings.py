@@ -1,6 +1,7 @@
+import pytest
+
 from app.common import settings
 from app.common.settings import EnvironmentVariableNotFoundException
-import pytest
 
 
 class TestSettings:

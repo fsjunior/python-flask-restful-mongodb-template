@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "97a68790-d8ad-4bd1-9147-10c0e0b05254",
+		"name": "Python Seed Flask Mongoengine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost",
+			"item": [
+				{
+					"name": "Post recipe",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Eggnog\",\n\t\"ingredients\": [\n\t\t\"6 large eggs\",\n\t\t\"1 cup granulated sugar\",\n        \"2 cups whole milk\",\n        \"1 cup heavy cream\",\n        \"1/2 to 1 1/2 cups bourbon, rum, cognac, or a mix (optional)\",\n        \"Freshly grated nutmeg, for serving\"\n\t\t],\n    \"howto\": \"1) Separate the eggs. 2) Whisk the yolks with the sugar. 3) Whisk in the milk, cream, and liquor (if using). 4) Cover and refrigerate. 5) Whisk the egg whites. 6)Fold the egg whites into the eggnog. 7) Serve the eggnog.\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/recipes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recipes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/recipes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recipe by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/recipes/<id>",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"recipes",
+								"<id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update recipe",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Eggnog\",\n\t\"ingredients\": [\n\t\t\"6 large eggs\",\n\t\t\"1 cup granulated sugar\",\n        \"2 cups whole milk\",\n        \"1 cup heavy cream\",\n        \"1/2 to 1 1/2 cups bourbon, rum, cognac, or a mix (optional)\",\n        \"Freshly grated nutmeg, for serving\"\n\t\t],\n    \"howto\": \"1) Separate the eggs. 2) Whisk the yolks with the sugar. 3) Whisk in the milk, cream, and liquor (if using). 4) Cover and refrigerate. 5) Whisk the egg whites. 6)Fold the egg whites into the eggnog. 7) Serve the eggnog. 8) Drink the eggnog.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/recipes/606b38a83f082be33412d3ae",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"recipes",
+								"606b38a83f082be33412d3ae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Recipe",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/recipes/606b38a83f082be33412d3ae",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"recipes",
+								"606b38a83f082be33412d3ae"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "chico.codes",
+			"item": [
+				{
+					"name": "Post recipe",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Eggnog\",\n\t\"ingredients\": [\n\t\t\"6 large eggs\",\n\t\t\"1 cup granulated sugar\",\n        \"2 cups whole milk\",\n        \"1 cup heavy cream\",\n        \"1/2 to 1 1/2 cups bourbon, rum, cognac, or a mix (optional)\",\n        \"Freshly grated nutmeg, for serving\"\n\t\t],\n    \"howto\": \"1) Separate the eggs. 2) Whisk the yolks with the sugar. 3) Whisk in the milk, cream, and liquor (if using). 4) Cover and refrigerate. 5) Whisk the egg whites. 6)Fold the egg whites into the eggnog. 7) Serve the eggnog.\"\n}"
+						},
+						"url": {
+							"raw": "http://flask-template.chico.codes/api/v1/recipes",
+							"protocol": "http",
+							"host": [
+								"flask-template",
+								"chico",
+								"codes"
+							],
+							"path": [
+								"api",
+								"v1",
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recipes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://flask-template.chico.codes/api/v1/recipes",
+							"protocol": "http",
+							"host": [
+								"flask-template",
+								"chico",
+								"codes"
+							],
+							"path": [
+								"api",
+								"v1",
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recipe by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://flask-template.chico.codes/api/v1/recipes/<id>",
+							"protocol": "http",
+							"host": [
+								"flask-template",
+								"chico",
+								"codes"
+							],
+							"path": [
+								"api",
+								"v1",
+								"recipes",
+								"<id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update recipe",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Eggnog\",\n\t\"ingredients\": [\n\t\t\"6 large eggs\",\n\t\t\"1 cup granulated sugar\",\n        \"2 cups whole milk\",\n        \"1 cup heavy cream\",\n        \"1/2 to 1 1/2 cups bourbon, rum, cognac, or a mix (optional)\",\n        \"Freshly grated nutmeg, for serving\"\n\t\t],\n    \"howto\": \"1) Separate the eggs. 2) Whisk the yolks with the sugar. 3) Whisk in the milk, cream, and liquor (if using). 4) Cover and refrigerate. 5) Whisk the egg whites. 6)Fold the egg whites into the eggnog. 7) Serve the eggnog. 8) Drink the eggnog.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://flask-template.chico.codes/api/v1/recipes/606b38a83f082be33412d3ae",
+							"protocol": "http",
+							"host": [
+								"flask-template",
+								"chico",
+								"codes"
+							],
+							"path": [
+								"api",
+								"v1",
+								"recipes",
+								"606b38a83f082be33412d3ae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Recipe",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://flask-template.chico.codes/api/v1/recipes/606b38a83f082be33412d3ae",
+							"protocol": "http",
+							"host": [
+								"flask-template",
+								"chico",
+								"codes"
+							],
+							"path": [
+								"api",
+								"v1",
+								"recipes",
+								"606b38a83f082be33412d3ae"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
