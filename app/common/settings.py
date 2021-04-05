@@ -34,7 +34,7 @@ class Settings:
 
     @property
     def app_port(self) -> int:
-        return self._get_env("APP_PORT", int, 8080)
+        return self._get_env("APP_PORT", int, 80)
 
     @property
     def app_env(self) -> str:
@@ -54,20 +54,20 @@ class Settings:
 
     @property
     def openapi_url_prefix(self) -> str:
-        return self._get_env("OPENAPI_URL_PREFIX", str)
+        return self._get_env("OPENAPI_URL_PREFIX", str, "/doc")
 
     @property
     def openapi_swagger_ui_path(self) -> str:
-        return self._get_env("OPENAPI_SWAGGER_UI_PATH", str)
+        return self._get_env("OPENAPI_SWAGGER_UI_PATH", str, "/swagger")
 
     @property
     def openapi_swagger_ui_url(self) -> str:
-        return self._get_env("OPENAPI_SWAGGER_UI_URL", str)
+        return self._get_env("OPENAPI_SWAGGER_UI_URL", str, "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.36.1/")
 
     @property
     def openapi_redoc_path(self) -> str:
-        return self._get_env("OPENAPI_REDOC_PATH", str)
+        return self._get_env("OPENAPI_REDOC_PATH", str, "/redoc")
 
     @property
     def openapi_redoc_url(self) -> str:
-        return self._get_env("OPENAPI_REDOC_URL", str)
+        return self._get_env("OPENAPI_REDOC_URL", str, "https://cdn.jsdelivr.net/npm/redoc@2.0.0-rc.45/bundles/redoc.standalone.js")
