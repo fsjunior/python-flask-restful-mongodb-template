@@ -15,7 +15,7 @@ test: clean
 	poetry run pytest test
 	poetry run pytest --dead-fixtures --dup-fixtures test
 
-make check-all: coverage
+check-all: coverage
 	pre-commit run --all-files
 
 coverage: clean
