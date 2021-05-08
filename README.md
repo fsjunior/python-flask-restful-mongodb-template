@@ -111,7 +111,7 @@ mirrored from `app`, so it is easy to find where the tests are.
 Inside the `app` folder, there are three sub-folders:
 
 - `api` which contains API sub-folders `schema` (for schemas), `rest` (for RESTful views), 
-`query` (for queries) and `exceptions` (for exceptions definitions).
+`business` (for business logic) and `exceptions` (for exceptions definitions).
 - `common` with common files like a settings file.
 - `model` with the MongoDB collection models.
 
