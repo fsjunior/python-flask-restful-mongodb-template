@@ -1,6 +1,6 @@
 import pytest
 
-from app.api.query.common import _validate_objectid
+from app.api.business.common import _validate_objectid
 
 
 class TestCommon:

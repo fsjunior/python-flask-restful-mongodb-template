@@ -1,20 +1,20 @@
 [tool.poetry]
 name = "python-flask-restful-seed"
-version = "0.1.0"
-description = "A simple flask restful seed."
+version = "0.1.1"
+description = "A simple and powerful Python+Flask RESTful Template."
 authors = ["Francisco de Souza Junior <fsjunior@gmail.com>"]
 license = "MIT License"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.9.5"
 Flask = "^1.1.2"
-flask-smorest = "^0.25.0"
-flask-mongoengine = "^0.9.5"
+flask-smorest = "^0.30.0"
+flask-mongoengine = "^1.0.0"
 flask-marshmallow = "^0.14.0"
 Flask-Cors = "^3.0.9"
 gunicorn = "^20.0.4"
 marshmallow = "^3.8.0"
-python-dotenv = "^0.15.0"
+python-dotenv = "^0.17.1"
 pymongo-migrate = "^0.11.0"
 Flask-Caching = "^1.9.0"
 
@@ -22,12 +22,13 @@ Flask-Caching = "^1.9.0"
 pytest-flask = "^1.0.0"
 pytest-cov = "^2.10.1"
 codecov = "^2.1.10"
-mypy = "^0.790"
+mypy = "^0.812"
 pytest-deadfixtures = "^2.2.1"
 pytest-mock = "^3.3.1"
 pre-commit = "^2.11.1"
 pylint = "^2.7.4"
 pylint-mongoengine = "^0.4.0"
+Pygments = "^2.9.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

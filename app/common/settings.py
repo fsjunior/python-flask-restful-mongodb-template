@@ -1,6 +1,7 @@
 import os
 from typing import Any
 
+import toml
 from dotenv import load_dotenv
 
 
@@ -11,6 +12,7 @@ class EnvironmentVariableNotFoundException(Exception):
 class Settings:
     def __init__(self):
         load_dotenv(verbose=True)
+        self.py_project = toml.load("pyproject.toml")
 
     @staticmethod
     def _get_env(key: str, type_name: type, default: Any = None) -> Any:
@@ -22,15 +24,15 @@ class Settings:
     # Generic App and Flask settings
     @property
     def app_name(self) -> str:
-        return "Flask RESTful Template"
+        return self.py_project["tool"]["poetry"]["name"]
 
     @property
     def app_version(self) -> str:
-        return "0.1.0"
+        return self.py_project["tool"]["poetry"]["version"]
 
     @property
     def app_description(self) -> str:
-        return "A simple and powerful Python+Flask RESTful Template"
+        return self.py_project["tool"]["poetry"]["description"]
 
     @property
     def app_port(self) -> int:
