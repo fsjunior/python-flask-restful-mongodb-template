@@ -27,14 +27,14 @@ class Recipes(MethodView):
         pagination_parameters.item_count = result.total
         return result.items
 
-    # @classmethod
-    # @api.arguments(RecipeSchema)
-    # @api.response(201, RecipeSchema)
-    # def post(cls, recipe_data: dict):
-    #     """Add a new recipe"""
-    #     item = Recipe(**recipe_data)
-    #     item.save()
-    #     return item
+    @classmethod
+    @api.arguments(RecipeSchema)
+    @api.response(201, RecipeSchema)
+    def post(cls, recipe_data: dict):
+        """Add a new recipe"""
+        item = Recipe(**recipe_data)
+        item.save()
+        return item
 
 
 @api.route("/<recipe_id>")
@@ -50,18 +50,18 @@ class RecipeById(MethodView):
         """Get recipe by ID"""
         return find_recipe_by_id(recipe_id).first()
 
-    # @classmethod
-    # @api.arguments(RecipeSchema)
-    # @api.response(200, RecipeSchema)
-    # def put(cls, recipe_data: dict, recipe_id: str):
-    #     """Update existing recipe"""
-    #     item = find_recipe_by_id(recipe_id).first()
-    #     item.update(**recipe_data)
-    #     item.save()
-    #     return find_recipe_by_id(recipe_id).first()
-    #
-    # @classmethod
-    # @api.response(204)
-    # def delete(cls, recipe_id: str):
-    #     """Delete recipe"""
-    #     find_recipe_by_id(recipe_id).delete()
+    @classmethod
+    @api.arguments(RecipeSchema)
+    @api.response(200, RecipeSchema)
+    def put(cls, recipe_data: dict, recipe_id: str):
+        """Update existing recipe"""
+        item = find_recipe_by_id(recipe_id).first()
+        item.update(**recipe_data)
+        item.save()
+        return find_recipe_by_id(recipe_id).first()
+
+    @classmethod
+    @api.response(204)
+    def delete(cls, recipe_id: str):
+        """Delete recipe"""
+        find_recipe_by_id(recipe_id).delete()
