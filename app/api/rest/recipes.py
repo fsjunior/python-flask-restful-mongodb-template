@@ -43,25 +43,25 @@ class RecipeById(MethodView):
     # not recomendded to use memoization with objects
     # (as the `self` reference could always change)
     # see: https://flask-caching.readthedocs.io/en/latest/#memoization
-    @classmethod
+    @staticmethod
     @api.response(200, RecipeSchema)
     @cache.memoize(timeout=30)
-    def get(cls, recipe_id: str):
+    def get(recipe_id: str):
         """Get recipe by ID"""
         return find_recipe_by_id(recipe_id).first()
 
-    @classmethod
+    @staticmethod
     @api.arguments(RecipeSchema)
     @api.response(200, RecipeSchema)
-    def put(cls, recipe_data: dict, recipe_id: str):
+    def put(recipe_data: dict, recipe_id: str):
         """Update existing recipe"""
         item = find_recipe_by_id(recipe_id).first()
         item.update(**recipe_data)
         item.save()
         return find_recipe_by_id(recipe_id).first()
 
-    @classmethod
+    @staticmethod
     @api.response(204)
-    def delete(cls, recipe_id: str):
+    def delete(recipe_id: str):
         """Delete recipe"""
         find_recipe_by_id(recipe_id).delete()
